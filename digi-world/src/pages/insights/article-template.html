@@ -1,0 +1,115 @@
+<!--page
+{
+  "title": "[PLACEHOLDER: Article title, under 60 characters]",
+  "description": "[PLACEHOLDER: Article meta description, 140 to 160 characters, stating the question the article answers and the answer in brief.]",
+  "path": "/insights/article-template/",
+  "nav": "insights",
+  "ogType": "article",
+  "noindex": true,
+  "breadcrumbs": [
+    { "name": "Insights", "url": "{{SITE_URL}}/insights/" },
+    { "name": "Article template", "url": "{{SITE_URL}}/insights/article-template/" }
+  ],
+  "jsonld": [
+    {
+      "@type": "Article",
+      "@id": "{{SITE_URL}}/insights/article-template/#article",
+      "headline": "[PLACEHOLDER: Article title]",
+      "description": "[PLACEHOLDER: one-sentence summary]",
+      "datePublished": "[PLACEHOLDER: YYYY-MM-DD]",
+      "dateModified": "[PLACEHOLDER: YYYY-MM-DD]",
+      "author": { "@type": "Person", "name": "[PLACEHOLDER: author name]" },
+      "publisher": { "@id": "{{SITE_URL}}/#organization" },
+      "mainEntityOfPage": { "@id": "{{SITE_URL}}/insights/article-template/#webpage" },
+      "image": "{{SITE_URL}}/assets/img/og-image.png",
+      "inLanguage": "en"
+    }
+  ]
+}
+-->
+    <!--
+      ARTICLE TEMPLATE
+      To publish an article:
+      1. Copy this file to src/pages/insights/<url-slug>.html.
+      2. In the front matter: set title, description, path ("/insights/<url-slug>/"), the breadcrumb,
+         and the Article JSON-LD (headline, dates, author). Remove "noindex": true.
+      3. Replace every [PLACEHOLDER] below. Keep one H1, then H2 sections that each answer one question.
+      4. Add a card for the article on src/pages/insights.html, then run `node build.mjs`.
+    -->
+    <article class="article">
+      <div class="container">
+        <header class="article__header">
+          <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/insights/">Insights</a></li><li aria-current="page">Article</li></ol></nav>
+          <p class="eyebrow">[PLACEHOLDER: topic, e.g. GEO]</p>
+          <h1><span class="ph">[PLACEHOLDER: Article title phrased as the question or outcome, e.g. "What GEO means for a small business"]</span></h1>
+          <p class="lead"><span class="ph">[PLACEHOLDER: one-paragraph introduction: who this is for and what they will learn]</span></p>
+          <p class="article__meta">
+            <span>By <span class="ph">[PLACEHOLDER: author name]</span></span>
+            <span>Published <time datetime="2026-01-01"><span class="ph">[PLACEHOLDER: date, written as e.g. 1 January 2026]</span></time></span>
+            <span><span class="ph">[PLACEHOLDER: reading time, e.g. 6 min read]</span></span>
+          </p>
+        </header>
+
+        <div class="article__body">
+          <aside class="takeaway" aria-labelledby="takeaway-title">
+            <h2 id="takeaway-title">Short answer</h2>
+            <p><span class="ph">[PLACEHOLDER: two or three sentences that directly answer the article's main question. This is the passage search engines and AI tools are most likely to quote.]</span></p>
+          </aside>
+
+          <nav class="toc" aria-labelledby="toc-title">
+            <h2 id="toc-title">In this article</h2>
+            <ol>
+              <li><a href="#section-1">[PLACEHOLDER: section 1 heading]</a></li>
+              <li><a href="#section-2">[PLACEHOLDER: section 2 heading]</a></li>
+              <li><a href="#section-3">[PLACEHOLDER: section 3 heading]</a></li>
+              <li><a href="#faq">Frequently asked questions</a></li>
+            </ol>
+          </nav>
+
+          <h2 id="section-1"><span class="ph">[PLACEHOLDER: section heading phrased as a question, e.g. "What is GEO?"]</span></h2>
+          <p><span class="ph">[PLACEHOLDER: start with a one-sentence direct answer, then explain in short paragraphs of two to four sentences.]</span></p>
+
+          <h2 id="section-2"><span class="ph">[PLACEHOLDER: section heading]</span></h2>
+          <p><span class="ph">[PLACEHOLDER: body text]</span></p>
+          <ul>
+            <li><span class="ph">[PLACEHOLDER: list item: use lists for steps or criteria]</span></li>
+            <li><span class="ph">[PLACEHOLDER: list item]</span></li>
+            <li><span class="ph">[PLACEHOLDER: list item]</span></li>
+          </ul>
+
+          <figure>
+            <!--
+              Images: use AVIF/WebP with explicit width/height, lazy loading, and descriptive alt text, e.g.
+              <picture>
+                <source srcset="/assets/img/insights/example.avif" type="image/avif">
+                <img src="/assets/img/insights/example.webp" width="1200" height="675" loading="lazy" decoding="async" alt="Describe what the image shows">
+              </picture>
+            -->
+            <img src="/assets/img/article-figure-placeholder.svg" width="1200" height="675" loading="lazy" decoding="async" alt="Placeholder diagram. Replace with a figure that supports this section.">
+            <figcaption><span class="ph">[PLACEHOLDER: figure caption and source]</span></figcaption>
+          </figure>
+
+          <h2 id="section-3"><span class="ph">[PLACEHOLDER: section heading]</span></h2>
+          <p><span class="ph">[PLACEHOLDER: body text. Cite sources with links where you make factual claims.]</span></p>
+          <p class="note"><strong>Note:</strong> <span class="ph">[PLACEHOLDER: optional caveat or "what this does not cover"]</span></p>
+
+          <h2 id="faq">Frequently asked questions</h2>
+          <div class="faq">
+            <details class="faq__item">
+              <summary>[PLACEHOLDER: question 1]</summary>
+              <div class="faq__answer"><p>[PLACEHOLDER: direct answer in one to three sentences]</p></div>
+            </details>
+            <details class="faq__item">
+              <summary>[PLACEHOLDER: question 2]</summary>
+              <div class="faq__answer"><p>[PLACEHOLDER: direct answer in one to three sentences]</p></div>
+            </details>
+          </div>
+
+          <div class="panel mt-4">
+            <h2 class="mt-0">Want this applied to your website?</h2>
+            <p>A website audit shows where you stand and what to fix first.</p>
+            <a class="btn btn--primary" href="/contact/?enquiry=audit#enquiry" data-track="cta_click" data-cta-name="request_audit" data-cta-location="article_footer">Request a Website Audit <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </article>
