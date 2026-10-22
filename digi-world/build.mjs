@@ -16,8 +16,11 @@ import { fileURLToPath } from "node:url";
 // Site configuration. Replace the placeholders before launch.
 // ---------------------------------------------------------------------------
 const CONFIG = {
-  // [PLACEHOLDER: production domain, no trailing slash, e.g. https://www.digiworld.example]
-  SITE_URL: "https://www.example.com",
+  // Production URL, no trailing slash. Currently the free GitHub Pages address.
+  // [PLACEHOLDER: replace with your own domain when you have one, and set BASE_PATH to ""]
+  SITE_URL: "https://csm-gif.github.io/None",
+  // Sub-path the site is served from ("" at a domain root; "/None" on GitHub Pages for this repo).
+  BASE_PATH: "/None",
   SITE_NAME: "Digi World",
   EMAIL: "wealthop202@gmail.com",
   // [PLACEHOLDER: booking link, e.g. a scheduling page]. Until set, consultations go to the contact form.
@@ -61,6 +64,15 @@ const replaceTokens = (s) =>
     .replaceAll("{{BOOKING_URL}}", CONFIG.BOOKING_URL)
     .replaceAll("{{FORM_ENDPOINT}}", CONFIG.FORM_ENDPOINT)
     .replaceAll("{{YEAR}}", String(new Date().getFullYear()));
+
+// Prefix root-relative URLs ("/about/", url("/assets/...")) with BASE_PATH.
+const withBase = (s) =>
+  CONFIG.BASE_PATH
+    ? s
+        .replace(/((?:href|src|action)=")\/(?!\/)/g, `$1${CONFIG.BASE_PATH}/`)
+        .replace(/url\("\/(?!\/)/g, `url("${CONFIG.BASE_PATH}/`)
+        .replace(/("(?:src|start_url)":\s*")\/(?!\/)/g, `$1${CONFIG.BASE_PATH}/`)
+    : s;
 
 // Each page starts with <!--page { ...json... } --> followed by its <main> content.
 function parsePage(raw, file) {
@@ -173,7 +185,7 @@ async function main() {
       `data-nav="${meta.nav}" aria-current="page"`,
     );
 
-    const html = replaceTokens(
+    const html = withBase(replaceTokens(
       layout
         .replace("{{ROBOTS}}", meta.noindex ? "noindex, follow" : "index, follow, max-image-preview:large")
         .replace("{{CANONICAL}}", escapeAttr(url))
@@ -188,7 +200,7 @@ async function main() {
         .replace("{{HEADER}}", navHeader)
         .replace("{{FOOTER}}", footer)
         .replace("{{CONTENT}}", body),
-    );
+    ));
 
     const outFile = meta.path.endsWith(".html")
       ? path.join(DIST, meta.path)
@@ -209,7 +221,7 @@ async function main() {
     if ((await stat(from)).isFile()) {
       const content = await readFile(from);
       const isText = /\.(txt|xml|json|webmanifest|html)$|^_headers$/.test(entry);
-      await writeFile(path.join(DIST, entry), isText ? replaceTokens(content.toString("utf8")) : content);
+      await writeFile(path.join(DIST, entry), isText ? withBase(replaceTokens(content.toString("utf8"))) : content);
     }
   }
 
