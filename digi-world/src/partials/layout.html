@@ -6,20 +6,15 @@
   <title>{{TITLE}}</title>
   <meta name="description" content="{{DESCRIPTION}}">
   <meta name="robots" content="{{ROBOTS}}">
-  <link rel="canonical" href="{{CANONICAL}}">
-  <meta name="theme-color" content="#F7F5F0">
+  <link rel="canonical" href="{{URL}}">
+  <meta name="theme-color" content="#0D1B2A">
   <meta name="color-scheme" content="light">
-  <script>document.documentElement.className = document.documentElement.className.replace("no-js", "js");</script>
-
-  <link rel="preload" href="/assets/fonts/newsreader-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-
+  <script>document.documentElement.className="js";</script>
+  <link rel="preload" href="/assets/fonts/ibm-plex-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="icon" href="/favicon.ico" sizes="32x32">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
-
-  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="{{OG_TYPE}}">
   <meta property="og:site_name" content="{{SITE_NAME}}">
   <meta property="og:title" content="{{TITLE}}">
@@ -28,43 +23,16 @@
   <meta property="og:image" content="{{SITE_URL}}/assets/img/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Digi World: digital growth consultancy">
+  <meta property="og:image:alt" content="Digi World: know what's working, fix what isn't.">
   <meta property="og:locale" content="en">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{TITLE}}">
   <meta name="twitter:description" content="{{DESCRIPTION}}">
   <meta name="twitter:image" content="{{SITE_URL}}/assets/img/og-image.png">
-  <!-- [PLACEHOLDER: X/Twitter handle] <meta name="twitter:site" content="@handle"> -->
-
+  <!-- International: if you add translations later, add <link rel="alternate" hreflang="..."> tags here (see README). -->
   <style>{{CSS}}</style>
-
-  <!--
-    Google Analytics 4 (disabled until consent handling is in place).
-    1. Replace G-XXXXXXXXXX with [PLACEHOLDER: GA4 measurement ID].
-    2. [PLACEHOLDER: consent banner / CMP]. Load a consent tool first. Consent Mode defaults below
-       deny storage until the visitor agrees; your CMP must call gtag('consent', 'update', {...}).
-    3. Remove the comment markers around the two <script> blocks.
-
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      analytics_storage: 'denied',
-      wait_for_update: 500
-    });
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  -->
-
   <script src="/assets/js/main.js?v={{JS_VERSION}}" defer></script>
-  <script type="application/ld+json">
-{{JSONLD}}
-  </script>
+  <script type="application/ld+json">{{JSONLD}}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -74,5 +42,6 @@
 {{CONTENT}}
   </main>
   {{FOOTER}}
+  {{CONSENT}}
 </body>
 </html>

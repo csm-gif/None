@@ -1,193 +1,127 @@
 <!--page
 {
-  "title": "Our process: audit, strategy, implement, measure",
-  "description": "How Digi World works in four steps: Audit, Strategy, Implement, and Measure and Improve. See what you provide and what you receive at each stage.",
+  "title": "How we work: our process and measurement methodology",
+  "description": "How Digi World works: audit, strategy, implement, measure. See what you provide, what you receive, our measurement rules, and what happens in your first 30 days.",
   "path": "/process/",
   "nav": "process",
-  "breadcrumbs": [{ "name": "Our Process", "url": "{{SITE_URL}}/process/" }],
-  "jsonld": [
-    {
-      "@type": "HowTo",
-      "name": "How a Digi World engagement works",
-      "description": "Four steps from audit to measured improvement.",
-      "step": [
-        { "@type": "HowToStep", "position": 1, "name": "Audit", "text": "Review the website, search presence, analytics, and conversion paths to establish a baseline.", "url": "{{SITE_URL}}/process/#audit" },
-        { "@type": "HowToStep", "position": 2, "name": "Strategy", "text": "Agree goals and turn the audit findings into a prioritised, realistic plan.", "url": "{{SITE_URL}}/process/#strategy" },
-        { "@type": "HowToStep", "position": 3, "name": "Implement", "text": "Make the agreed changes, or support your team or developer to make them.", "url": "{{SITE_URL}}/process/#implement" },
-        { "@type": "HowToStep", "position": 4, "name": "Measure and improve", "text": "Report on results in plain language and adjust the plan based on the evidence.", "url": "{{SITE_URL}}/process/#measure" }
-      ]
-    }
-  ]
+  "crumb": "How we work"
 }
 -->
-    <section class="page-hero">
+    <section class="page-hero" aria-labelledby="proc-h">
       <div class="container grid">
         <div class="lg-7">
-          <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Our Process</li></ol></nav>
-          <h1>Our process</h1>
-          <p class="lead">Four steps, repeated as needed. You always know what we are doing, what we need from you, and what you will receive.</p>
+          <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">How we work</li></ol></nav>
+          <h1 id="proc-h">How we work</h1>
+          <p class="lead">Four steps, built around one rule: measure before you change anything. You always know what we're doing, what we need from you, and what you'll get.</p>
         </div>
-        <figure class="lg-5 diagram">
-          <svg viewBox="0 0 360 260" fill="none" role="img" aria-labelledby="cycle-caption" focusable="false">
-            <defs>
-              <marker id="arrowhead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0e1a2b"/></marker>
-            </defs>
-            <g stroke="#0e1a2b" stroke-width="1.5">
-              <rect x="20" y="20" width="130" height="64" rx="8" fill="#ffffff"/>
-              <rect x="210" y="20" width="130" height="64" rx="8" fill="#ffffff"/>
-              <rect x="210" y="176" width="130" height="64" rx="8" fill="#ffffff"/>
-              <rect x="20" y="176" width="130" height="64" rx="8" fill="#e2eeeb" stroke="#0b6e69"/>
-              <path d="M152 52H206" marker-end="url(#arrowhead)"/>
-              <path d="M275 86V172" marker-end="url(#arrowhead)"/>
-              <path d="M208 208H154" marker-end="url(#arrowhead)"/>
-              <path d="M85 174V88" marker-end="url(#arrowhead)" stroke-dasharray="4 5"/>
-            </g>
-            <g text-anchor="middle">
-              <text x="85" y="49" font-size="11" fill="#0b6e69" font-weight="600">01</text>
-              <text x="85" y="68" font-size="15">Audit</text>
-              <text x="275" y="49" font-size="11" fill="#0b6e69" font-weight="600">02</text>
-              <text x="275" y="68" font-size="15">Strategy</text>
-              <text x="275" y="205" font-size="11" fill="#0b6e69" font-weight="600">03</text>
-              <text x="275" y="224" font-size="15">Implement</text>
-              <text x="85" y="205" font-size="11" fill="#0b6e69" font-weight="600">04</text>
-              <text x="85" y="224" font-size="15">Measure</text>
-            </g>
-            <text x="98" y="135" font-size="11" fill="#5a6472">repeat</text>
-          </svg>
-          <figcaption id="cycle-caption" class="visually-hidden">Diagram: Audit leads to Strategy, then Implement, then Measure and improve, which loops back to a new audit of what changed.</figcaption>
-        </figure>
+        <div class="lg-5">{{SIGNAL_FIELD}}</div>
       </div>
     </section>
 
+    {{RULE}}
+
     <div class="section">
       <div class="container">
-
-        <section class="process-step grid reveal" id="audit" aria-labelledby="audit-title">
-          <div class="lg-4">
-            <p class="process-step__label" aria-hidden="true">01</p>
-            <h2 id="audit-title">Audit</h2>
-          </div>
-          <div class="lg-8">
-            <p>We review your website, search visibility, analytics, and conversion paths to understand where you stand today. This becomes the baseline we measure progress against.</p>
+        <section class="pstep" id="audit" aria-labelledby="s1">
+          <div><p class="pstep__n">Step 01</p><h2 id="s1">Audit</h2></div>
+          <div>
+            <p class="lead">We review your analytics, search visibility, content, and conversion path, and record your current numbers as a baseline.</p>
             <div class="give-get">
-              <div>
-                <h3>You provide</h3>
-                <ul>
-                  <li>Your website address and main business goals</li>
-                  <li>Read-only access to analytics and Search Console, if available</li>
-                  <li>A short call or questionnaire about your customers</li>
-                </ul>
-              </div>
-              <div>
-                <h3>You receive</h3>
-                <ul>
-                  <li>A written audit report in plain language</li>
-                  <li>A prioritised list of issues and opportunities</li>
-                  <li>A walkthrough call to discuss the findings</li>
-                </ul>
-              </div>
+              <div><h3 class="label">You provide</h3><ul><li>Your goals</li><li>Read-only access to GA4 and Search Console</li><li>A short questionnaire</li></ul></div>
+              <div><h3 class="label">You receive</h3><ul><li>A written report</li><li>A ranked action list</li><li>A walkthrough call</li></ul></div>
             </div>
-            <p class="duration"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg> Typical duration: <span class="ph">[PLACEHOLDER: e.g. 1 to 2 weeks]</span></p>
           </div>
         </section>
-
-        <section class="process-step grid reveal" id="strategy" aria-labelledby="strategy-title">
-          <div class="lg-4">
-            <p class="process-step__label" aria-hidden="true">02</p>
-            <h2 id="strategy-title">Strategy</h2>
-          </div>
-          <div class="lg-8">
-            <p>We agree what success looks like and turn the audit findings into a plan. The plan is short, specific, and ordered by expected effort and impact.</p>
+        <section class="pstep" id="strategy" aria-labelledby="s2">
+          <div><p class="pstep__n">Step 02</p><h2 id="s2">Strategy</h2></div>
+          <div>
+            <p class="lead">We agree what success looks like and turn the findings into a short plan.</p>
             <div class="give-get">
-              <div>
-                <h3>You provide</h3>
-                <ul>
-                  <li>Feedback on the audit findings</li>
-                  <li>Budget range, timeline, and any constraints</li>
-                  <li>Who on your side will approve and implement changes</li>
-                </ul>
-              </div>
-              <div>
-                <h3>You receive</h3>
-                <ul>
-                  <li>A written plan with clear priorities</li>
-                  <li>Agreed goals and how each will be measured</li>
-                  <li>A timeline and an estimate for the work</li>
-                </ul>
-              </div>
+              <div><h3 class="label">You provide</h3><ul><li>Feedback on the findings</li><li>Your budget range and deadlines</li></ul></div>
+              <div><h3 class="label">You receive</h3><ul><li>A written plan with priorities</li><li>Timeline, measures of success, and cost</li></ul></div>
             </div>
-            <p class="duration"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg> Typical duration: <span class="ph">[PLACEHOLDER: e.g. 1 week]</span></p>
           </div>
         </section>
-
-        <section class="process-step grid reveal" id="implement" aria-labelledby="implement-title">
-          <div class="lg-4">
-            <p class="process-step__label" aria-hidden="true">03</p>
-            <h2 id="implement-title">Implement</h2>
-          </div>
-          <div class="lg-8">
-            <p>We make the agreed changes, or give your team or developer clear specifications and review their work. You see progress as it happens, not only at the end.</p>
+        <section class="pstep" id="implement" aria-labelledby="s3">
+          <div><p class="pstep__n">Step 03</p><h2 id="s3">Implement</h2></div>
+          <div>
+            <p class="lead">We make the agreed changes, or give your team clear instructions and review their work.</p>
             <div class="give-get">
-              <div>
-                <h3>You provide</h3>
-                <ul>
-                  <li>Access to the website and relevant accounts</li>
-                  <li>Timely approval of content and changes</li>
-                  <li>Product, service, or customer knowledge we need</li>
-                </ul>
-              </div>
-              <div>
-                <h3>You receive</h3>
-                <ul>
-                  <li>The agreed changes, completed and checked</li>
-                  <li>Short progress updates at an agreed frequency</li>
-                  <li>Documentation of what was changed and why</li>
-                </ul>
-              </div>
+              <div><h3 class="label">You provide</h3><ul><li>Access to the site and accounts</li><li>Timely approvals</li></ul></div>
+              <div><h3 class="label">You receive</h3><ul><li>Completed changes</li><li>Progress updates</li><li>A log of what changed and when</li></ul></div>
             </div>
-            <p class="duration"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg> Typical duration: <span class="ph">[PLACEHOLDER: depends on scope, e.g. 4 to 12 weeks]</span></p>
           </div>
         </section>
-
-        <section class="process-step grid reveal" id="measure" aria-labelledby="measure-title">
-          <div class="lg-4">
-            <p class="process-step__label" aria-hidden="true">04</p>
-            <h2 id="measure-title">Measure and improve</h2>
-          </div>
-          <div class="lg-8">
-            <p>We compare results with the baseline from the audit, explain what changed, and recommend what to do next. Then the cycle continues with the next set of priorities.</p>
+        <section class="pstep" id="measure" aria-labelledby="s4">
+          <div><p class="pstep__n">Step 04</p><h2 id="s4">Measure and improve</h2></div>
+          <div>
+            <p class="lead">We compare results against the baseline, explain what changed, and plan the next round.</p>
             <div class="give-get">
-              <div>
-                <h3>You provide</h3>
-                <ul>
-                  <li>Business context we cannot see in the data, such as sales or seasonality</li>
-                  <li>Time for a regular review call</li>
-                </ul>
-              </div>
-              <div>
-                <h3>You receive</h3>
-                <ul>
-                  <li>A plain-language report on results against goals</li>
-                  <li>Recommendations for the next round of work</li>
-                  <li>An updated plan, if priorities have changed</li>
-                </ul>
-              </div>
+              <div><h3 class="label">You provide</h3><ul><li>Business context we can't see in the data, such as sales or seasonal patterns</li></ul></div>
+              <div><h3 class="label">You receive</h3><ul><li>A plain-language report</li><li>Updated recommendations</li></ul></div>
             </div>
-            <p class="duration"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg> Reporting frequency: <span class="ph">[PLACEHOLDER: e.g. monthly]</span></p>
           </div>
         </section>
-
       </div>
     </div>
 
-    <section class="cta-band" aria-labelledby="cta-title">
-      <svg class="cta-band__pattern" viewBox="0 0 400 200" fill="none" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="1.5"><path d="M0 180 C 80 170, 120 120, 200 110 S 320 40, 400 20"/><path d="M0 200H400M0 150H400M0 100H400M0 50H400" stroke-width="1"/></g></svg>
+    <section class="section section--alt" aria-labelledby="rules-h">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow">Methodology</p><h2 id="rules-h">Our measurement rules</h2><p class="lead">These five rules apply to every project, large or small.</p></div>
+        <ol class="rules">
+          <li><div><h3>Baseline first</h3><p>We record the key numbers before changing anything.</p></div></li>
+          <li><div><h3>Check the tracking</h3><p>If the data is wrong, every decision based on it is wrong too.</p></div></li>
+          <li><div><h3>Log every change</h3><p>Each change gets a date, so we can match it to results.</p></div></li>
+          <li><div><h3>Compare like with like</h3><p>We compare equal periods and allow for seasonal patterns.</p></div></li>
+          <li><div><h3>Report what didn't work</h3><p>We report a failed test as clearly as a successful one.</p></div></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="days-h">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow">Your first 30 days</p><h2 id="days-h">What your first 30 days look like</h2></div>
+        <ol class="timeline">
+          <li><p class="label">Week 1</p><h3>Set up</h3><p>We agree goals, get read-only access, and check your tracking.</p></li>
+          <li><p class="label">Weeks 2–3</p><h3>Review</h3><p>We review your site, search visibility, and conversion path.</p></li>
+          <li><p class="label">Week 4</p><h3>Your plan</h3><p>You get your report and action list, and we walk through it together.</p></li>
+        </ol>
+        <p class="small muted">Timings are typical and depend on how quickly we receive access. <span class="ph">[PLACEHOLDER: confirm timings]</span></p>
+      </div>
+    </section>
+
+    {{RULE}}
+
+    <section class="section" aria-labelledby="tools-h">
+      <div class="container">
+        <div class="split">
+          <div>
+            <p class="eyebrow">Tools</p>
+            <h2 id="tools-h" class="h3">Tools we use</h2>
+            <p class="mt-3"><span class="ph">[PLACEHOLDER: list only the tools you confirm, e.g. Google Analytics 4, Google Tag Manager, Google Search Console, PageSpeed Insights]</span></p>
+            <p>We use your accounts where possible, so the data stays with you.</p>
+          </div>
+          <div>
+            <p class="eyebrow">Reporting</p>
+            <h2 class="h3">How we report</h2>
+            <p class="mt-3">Short written reports, <span class="ph">[PLACEHOLDER: e.g. monthly]</span>, each answering three questions:</p>
+            <ol class="outline">
+              <li><span><strong>What did we do?</strong></span></li>
+              <li><span><strong>What changed?</strong></span></li>
+              <li><span><strong>What do we do next?</strong></span></li>
+            </ol>
+            <p class="mt-3">Numbers are explained in plain language, never just pasted from a dashboard.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="cta-h">
+      {{SIGNAL_FIELD}}
       <div class="container">
         <p class="eyebrow">Step one</p>
-        <h2 id="cta-title">Every engagement starts with an audit.</h2>
-        <p>Tell us about your website and goals. We will confirm the scope and next steps. Prefer to talk first? <a href="{{BOOKING_URL}}" data-track="cta_click" data-cta-name="book_consultation" data-cta-location="process_cta_band">Book a consultation</a>.</p>
-        <div class="actions">
-          <a class="btn btn--primary btn--lg" href="/contact/?enquiry=audit#enquiry" data-track="cta_click" data-cta-name="request_audit" data-cta-location="process_cta_band">Request a Website Audit <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
-        </div>
+        <h2 id="cta-h">Every engagement starts with an audit.</h2>
+        <p>It's free, it uses read-only access, and you keep the report whatever you decide.</p>
+        <div class="actions"><a class="btn btn--primary btn--lg" href="/audit/" data-event="audit_cta_click" data-location="process_band">Request a Website Audit<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
       </div>
     </section>

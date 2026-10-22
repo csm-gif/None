@@ -1,0 +1,8 @@
+# Netlify configuration for the Digi World site (see digi-world/README.md, "Deploy on Netlify").
+[build]
+  base = "digi-world"
+  command = "node build.mjs"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"

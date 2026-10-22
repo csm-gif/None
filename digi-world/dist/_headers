@@ -1,5 +1,3 @@
-# Cache and security headers (Netlify / Cloudflare Pages format).
-# For another host, apply the same rules in its configuration.
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin

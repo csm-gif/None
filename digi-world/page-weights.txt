@@ -1,0 +1,17 @@
+Uncompressed bytes per page: HTML (CSS inlined) + fonts (59.2 KB) + JS (9.4 KB). Budget: 150 KB excluding images.
+
+/                                          html  70.3 KB  total  138.8 KB
+/404.html                                  html  48.6 KB  total  117.1 KB  (noindex)
+/about/                                    html  53.3 KB  total  121.8 KB
+/audit/                                    html  60.3 KB  total  128.8 KB
+/case-studies/                             html  45.8 KB  total  114.3 KB  (noindex)
+/contact/                                  html  49.6 KB  total  118.2 KB
+/insights/                                 html  51.8 KB  total  120.3 KB
+/insights/ga4-setup-checklist/             html  57.4 KB  total  125.9 KB
+/insights/seo-geo-aeo-explained/           html  57.3 KB  total  125.8 KB
+/insights/why-traffic-isnt-converting/     html  57.2 KB  total  125.8 KB
+/privacy/                                  html  46.5 KB  total  115.0 KB  (noindex)
+/process/                                  html  61.3 KB  total  129.8 KB
+/services/                                 html  71.9 KB  total  140.4 KB
+/terms/                                    html  45.2 KB  total  113.8 KB  (noindex)
+/thank-you/                                html  50.3 KB  total  118.9 KB  (noindex)

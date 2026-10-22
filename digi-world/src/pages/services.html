@@ -1,191 +1,182 @@
 <!--page
 {
-  "title": "Services: SEO, GA4, GEO, AEO, audits and CRO",
-  "description": "Eight services from Digi World: digital marketing, GA4 analytics, SEO, Generative Engine Optimization, Answer Engine Optimization, website and data audits, conversion rate optimization, and digital strategy.",
+  "title": "Services: SEO, GA4, GEO, AEO, conversion and digital strategy",
+  "description": "Eight services from Digi World, from GA4 setup and SEO to AI-answer visibility and conversion work. See what each includes, who it suits, and how to start.",
   "path": "/services/",
   "nav": "services",
-  "breadcrumbs": [{ "name": "Services", "url": "{{SITE_URL}}/services/" }],
+  "crumb": "Services",
   "jsonld": [
-    { "@type": "Service", "@id": "{{SITE_URL}}/services/#digital-marketing", "name": "Digital marketing", "serviceType": "Digital marketing", "description": "Planning and running campaigns across search, social, and email, aimed at the customers you want and measured against clear goals.", "provider": { "@id": "{{SITE_URL}}/#organization" }, "url": "{{SITE_URL}}/services/#digital-marketing" },
-    { "@type": "Service", "@id": "{{SITE_URL}}/services/#ga4-analytics", "name": "GA4 analytics and measurement setup", "serviceType": "Web analytics setup", "description": "Setting up or repairing Google Analytics 4 so it records the actions that matter to your business, with reports you can read.", "provider": { "@id": "{{SITE_URL}}/#organization" }, "url": "{{SITE_URL}}/services/#ga4-analytics" },
-    { "@type": "Service", "@id": "{{SITE_URL}}/services/#seo", "name": "Search engine optimization (SEO)", "serviceType": "Search engine optimization", "description": "Technical fixes, content improvements, and site structure that help search engines find, understand, and show your pages.", "provider": { "@id": "{{SITE_URL}}/#organization" }, "url": "{{SITE_URL}}/services/#seo" },
-    { "@type": "Service", "@id": "{{SITE_URL}}/services/#geo", "name": "Generative Engine Optimization (GEO)", "serviceType": "Generative Engine Optimization", "description": "Making your content easy for AI tools to understand, trust, and mention when they answer questions.", "provider": { "@id": "{{SITE_URL}}/#organization" }, "url": "{{SITE_URL}}/services/#geo" },
-    { "@type": "Service", "@id": "{{SITE_URL}}/services/#aeo", "name": "Answer Engine Optimization (AEO)", "serviceType": "Answer Engine Optimization", "description": "Structuring content as clear, direct answers that search engines and voice assistants can show to people asking questions.", "provider": { "@id": "{{SITE_URL}}/#organization" }, "url": "{{SITE_URL}}/services/#aeo" },
-    { "@type": "Service", "@id": "{{SITE_URL}}/services/#audits", "name": "Website and data audits", "serviceType": "Website audit", "description": "A structured review of your website, search presence, analytics, and conversion paths, with a prioritised list of fixes.", "provider": { "@id": "{{SITE_URL}}/#organization" }, "url": "{{SITE_URL}}/services/#audits" },
+    { "@type": "Service", "@id": "{{SITE_URL}}/services/#digital-marketing", "name": "Digital marketing", "serviceType": "Digital marketing", "description": "Planning and running measured campaigns across search, social, and email.", "provider": { "@id": "{{SITE_URL}}/#organization" }, "url": "{{SITE_URL}}/services/#digital-marketing" },
+    { "@type": "Service", "@id": "{{SITE_URL}}/services/#ga4-analytics", "name": "GA4 analytics and measurement", "serviceType": "Web analytics setup", "description": "Setting up or repairing Google Analytics 4 so it records the actions that matter, with consent-aware tracking.", "provider": { "@id": "{{SITE_URL}}/#organization" }, "url": "{{SITE_URL}}/services/#ga4-analytics" },
+    { "@type": "Service", "@id": "{{SITE_URL}}/services/#seo", "name": "Search engine optimization (SEO)", "serviceType": "Search engine optimization", "description": "Technical fixes, page improvements, and site structure that help search engines find, understand, and show a site's pages.", "provider": { "@id": "{{SITE_URL}}/#organization" }, "url": "{{SITE_URL}}/services/#seo" },
+    { "@type": "Service", "@id": "{{SITE_URL}}/services/#geo", "name": "Generative Engine Optimization (GEO)", "serviceType": "Generative Engine Optimization", "description": "Making a business easy for AI tools to understand, trust, and mention in their answers.", "provider": { "@id": "{{SITE_URL}}/#organization" }, "url": "{{SITE_URL}}/services/#geo" },
+    { "@type": "Service", "@id": "{{SITE_URL}}/services/#aeo", "name": "Answer Engine Optimization (AEO)", "serviceType": "Answer Engine Optimization", "description": "Writing content as clear, direct answers to real questions so search engines and voice assistants can show them.", "provider": { "@id": "{{SITE_URL}}/#organization" }, "url": "{{SITE_URL}}/services/#aeo" },
+    { "@type": "Service", "@id": "{{SITE_URL}}/services/#audits", "name": "Website and data audits", "serviceType": "Website audit", "description": "A review of analytics, search visibility, content, and conversion path, with a ranked action list.", "provider": { "@id": "{{SITE_URL}}/#organization" }, "url": "{{SITE_URL}}/audit/" },
     { "@type": "Service", "@id": "{{SITE_URL}}/services/#cro", "name": "Conversion rate optimization", "serviceType": "Conversion rate optimization", "description": "Finding where visitors drop off and testing changes that help more of them become enquiries or customers.", "provider": { "@id": "{{SITE_URL}}/#organization" }, "url": "{{SITE_URL}}/services/#cro" },
-    { "@type": "Service", "@id": "{{SITE_URL}}/services/#strategy", "name": "Digital strategy consulting", "serviceType": "Digital strategy consulting", "description": "A practical plan for where to spend time and budget online, and how to tell whether it is working.", "provider": { "@id": "{{SITE_URL}}/#organization" }, "url": "{{SITE_URL}}/services/#strategy" }
+    { "@type": "Service", "@id": "{{SITE_URL}}/services/#strategy", "name": "Digital strategy consulting", "serviceType": "Digital strategy consulting", "description": "A practical plan for where to spend time and money online, with agreed measures of success.", "provider": { "@id": "{{SITE_URL}}/#organization" }, "url": "{{SITE_URL}}/services/#strategy" }
   ]
 }
 -->
-    <section class="page-hero">
+    <section class="page-hero" aria-labelledby="svc-h">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Services</li></ol></nav>
-        <h1>Services</h1>
-        <p class="lead">Eight services, one goal: more of the right visitors, and clear evidence of what works. Most clients start with an audit, then choose the services that address what it finds.</p>
-        <nav class="jump-nav" aria-label="Jump to a service">
-          <ul>
-            <li><a href="#digital-marketing">Digital marketing</a></li>
-            <li><a href="#ga4-analytics">GA4 analytics</a></li>
-            <li><a href="#seo">SEO</a></li>
-            <li><a href="#geo">GEO</a></li>
-            <li><a href="#aeo">AEO</a></li>
-            <li><a href="#audits">Audits</a></li>
-            <li><a href="#cro">Conversion optimization</a></li>
-            <li><a href="#strategy">Strategy consulting</a></li>
+        <h1 id="svc-h">Services</h1>
+        <p class="lead">Eight ways we help you get more of the right visitors and turn more of them into customers. Every service starts from your own data.</p>
+        <nav aria-label="Jump to a service">
+          <ul class="jump">
+            <li><a href="#audits">Audits</a></li><li><a href="#ga4-analytics">GA4 analytics</a></li><li><a href="#seo">SEO</a></li><li><a href="#geo">GEO</a></li><li><a href="#aeo">AEO</a></li><li><a href="#cro">Conversion</a></li><li><a href="#digital-marketing">Digital marketing</a></li><li><a href="#strategy">Strategy</a></li>
           </ul>
         </nav>
       </div>
     </section>
 
+    {{RULE}}
+
     <div class="section">
       <div class="container">
-
-        <section class="service-detail grid reveal" id="digital-marketing" aria-labelledby="digital-marketing-title">
-          <div class="lg-4">
-            <span class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-marketing"/></svg></span>
-            <h2 id="digital-marketing-title">Digital marketing</h2>
-          </div>
-          <div class="lg-8">
-            <p>We plan and run campaigns across search, social, and email, aimed at the customers you want and measured against goals agreed at the start. Budget goes where the data shows it is working.</p>
-            <p class="what-you-get-line"><strong>What you get:</strong> a channel plan, campaign setup and management, and a regular plain-language report on what each channel delivered.</p>
-            <a class="link-arrow" href="/contact/?service=digital-marketing#enquiry" data-track="cta_click" data-cta-name="service_enquiry" data-cta-location="services_digital_marketing">Ask about digital marketing <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+        <section class="service" id="audits" aria-labelledby="audits-h">
+          <div><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-audit"/></svg></span><h2 id="audits-h">Website and data audits</h2></div>
+          <div>
+            <p class="lead">A full review of your analytics, search visibility, content, and conversion path. It is the fastest way to see what is holding you back.</p>
+            <dl><dt>Good fit if</dt><dd>You want a clear picture before spending more.</dd><dt>What you get</dt><dd>A written report, a ranked action list, and a walkthrough call. Free, with no obligation.</dd></dl>
+            <a class="btn btn--primary" href="/audit/" data-event="audit_cta_click" data-location="services_audits">See what the audit covers<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </section>
-
-        <section class="service-detail grid reveal" id="ga4-analytics" aria-labelledby="ga4-title">
-          <div class="lg-4">
-            <span class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-analytics"/></svg></span>
-            <h2 id="ga4-title">GA4 analytics and measurement setup</h2>
-          </div>
-          <div class="lg-8">
-            <p>We set up or repair Google Analytics 4 so it records the actions that matter to you, such as enquiries, calls, and purchases. You get numbers you can trust and reports you can read.</p>
-            <p class="what-you-get-line"><strong>What you get:</strong> a documented GA4 setup with key events, consent-aware configuration, and a simple dashboard with a short handover session.</p>
-            <a class="link-arrow" href="/contact/?service=ga4#enquiry" data-track="cta_click" data-cta-name="service_enquiry" data-cta-location="services_ga4">Ask about GA4 setup <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+        <section class="service" id="ga4-analytics" aria-labelledby="ga4-h">
+          <div><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-analytics"/></svg></span><h2 id="ga4-h">GA4 analytics and measurement</h2></div>
+          <div>
+            <p class="lead">Google Analytics 4 (GA4) is Google's free tool for measuring what visitors do on your website. We set it up or repair it so it records the actions that matter to you, such as enquiries, calls, and purchases.</p>
+            <dl><dt>Good fit if</dt><dd>You don't trust your numbers, or you don't know where enquiries come from.</dd><dt>What you get</dt><dd>A documented GA4 setup with key events, consent-aware tracking, and a simple dashboard, plus a handover call.</dd></dl>
+            <a class="link-arrow" href="/insights/ga4-setup-checklist/">Read: what to check in your GA4 setup<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </section>
-
-        <section class="service-detail grid reveal" id="seo" aria-labelledby="seo-title">
-          <div class="lg-4">
-            <span class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-seo"/></svg></span>
-            <h2 id="seo-title">SEO</h2>
-          </div>
-          <div class="lg-8">
-            <p>Search engine optimization (SEO) helps search engines find, understand, and show your pages to people searching for what you offer. We fix technical issues, improve content, and make your site structure clear.</p>
-            <p class="what-you-get-line"><strong>What you get:</strong> a prioritised SEO plan, technical and on-page fixes, content recommendations, and monthly visibility reporting.</p>
-            <a class="link-arrow" href="/contact/?service=seo#enquiry" data-track="cta_click" data-cta-name="service_enquiry" data-cta-location="services_seo">Ask about SEO <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+        <section class="service" id="seo" aria-labelledby="seo-h">
+          <div><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-seo"/></svg></span><h2 id="seo-h">SEO</h2></div>
+          <div>
+            <p class="lead">Search engine optimization (SEO) is the work of helping search engines like Google find, understand, and show your pages. We fix technical problems, improve key pages, and make your site structure clear.</p>
+            <dl><dt>Good fit if</dt><dd>You aren't showing up for searches your customers make.</dd><dt>What you get</dt><dd>A prioritised SEO plan, technical and on-page fixes, and regular visibility reporting.</dd></dl>
           </div>
         </section>
-
-        <section class="service-detail grid reveal" id="geo" aria-labelledby="geo-title">
-          <div class="lg-4">
-            <span class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-geo"/></svg></span>
-            <h2 id="geo-title">Generative Engine Optimization (GEO)</h2>
-          </div>
-          <div class="lg-8">
-            <div class="definition"><p><strong>In plain English:</strong> GEO means making your content easy for AI tools such as ChatGPT, Gemini, and Perplexity to understand, trust, and mention when they answer questions.</p></div>
-            <p>We review how AI tools currently describe your business, then improve your content, structure, and references so you are represented accurately and more often.</p>
-            <p class="what-you-get-line"><strong>What you get:</strong> an AI-visibility review, a content and structured-data plan, and periodic checks of how AI tools describe you.</p>
-            <a class="link-arrow" href="/contact/?service=geo#enquiry" data-track="cta_click" data-cta-name="service_enquiry" data-cta-location="services_geo">Ask about GEO <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+        <section class="service" id="geo" aria-labelledby="geo-h">
+          <div><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-geo"/></svg></span><h2 id="geo-h">Generative Engine Optimization (GEO)</h2></div>
+          <div>
+            <div class="definition"><p><strong>In plain English:</strong> GEO means making your business easy for AI tools like ChatGPT, Gemini, and Perplexity to understand, trust, and mention in their answers.</p></div>
+            <p>We check how AI tools describe your business today. Then we improve your content and your presence on other trusted sites, so the description is accurate and more complete. No one controls what AI tools say; we improve the information they draw on.</p>
+            <dl><dt>Good fit if</dt><dd>Customers are starting to ask AI tools for recommendations in your field.</dd><dt>What you get</dt><dd>An AI-visibility review, a content plan, and regular checks of how AI tools describe you.</dd></dl>
+            <a class="link-arrow" href="/insights/seo-geo-aeo-explained/">Read: SEO vs GEO vs AEO explained<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </section>
-
-        <section class="service-detail grid reveal" id="aeo" aria-labelledby="aeo-title">
-          <div class="lg-4">
-            <span class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-aeo"/></svg></span>
-            <h2 id="aeo-title">Answer Engine Optimization (AEO)</h2>
-          </div>
-          <div class="lg-8">
-            <div class="definition"><p><strong>In plain English:</strong> AEO means writing and structuring your content as clear, direct answers so search engines and voice assistants can show it when people ask a question.</p></div>
-            <p>We find the questions your customers ask, write short answers to them, and add the page structure and markup that help search engines and voice assistants use those answers.</p>
-            <p class="what-you-get-line"><strong>What you get:</strong> a question map for your market, answer-led page and FAQ content, and structured data (schema) added to key pages.</p>
-            <a class="link-arrow" href="/contact/?service=aeo#enquiry" data-track="cta_click" data-cta-name="service_enquiry" data-cta-location="services_aeo">Ask about AEO <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+        <section class="service" id="aeo" aria-labelledby="aeo-h">
+          <div><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-aeo"/></svg></span><h2 id="aeo-h">Answer Engine Optimization (AEO)</h2></div>
+          <div>
+            <div class="definition"><p><strong>In plain English:</strong> AEO means writing your content as clear, direct answers to real questions, so search engines and voice assistants can show those answers.</p></div>
+            <p>We find the questions your customers ask, write short answers to them, and structure your pages so those answers are easy to find and quote.</p>
+            <dl><dt>Good fit if</dt><dd>Your customers ask a lot of similar questions before they buy.</dd><dt>What you get</dt><dd>A list of your customers' key questions, answer-led page content, and structured data on key pages.</dd></dl>
           </div>
         </section>
-
-        <section class="service-detail grid reveal" id="audits" aria-labelledby="audits-title">
-          <div class="lg-4">
-            <span class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-audit"/></svg></span>
-            <h2 id="audits-title">Website and data audits</h2>
-          </div>
-          <div class="lg-8">
-            <p>A structured review of your website, search presence, analytics, and conversion paths. It is the fastest way to see what is holding you back and what to fix first.</p>
-            <p class="what-you-get-line"><strong>What you get:</strong> a written report in plain language, a prioritised action list, and a call to walk through the findings. <span class="ph">[PLACEHOLDER: audit price or "free initial audit", and turnaround time]</span></p>
-            <a class="btn btn--primary" href="/contact/?enquiry=audit#enquiry" data-track="cta_click" data-cta-name="request_audit" data-cta-location="services_audits">Request a Website Audit <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+        <section class="service" id="cro" aria-labelledby="cro-h">
+          <div><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-cro"/></svg></span><h2 id="cro-h">Conversion rate optimization</h2></div>
+          <div>
+            <p class="lead">Conversion rate optimization (CRO) means helping more of your current visitors take the next step. We find where people hesitate or leave, then test specific changes.</p>
+            <dl><dt>Good fit if</dt><dd>You get visitors but few enquiries or sales.</dd><dt>What you get</dt><dd>A review of key pages and forms, a ranked list of changes to test, and test results.</dd></dl>
+            <a class="link-arrow" href="/insights/why-traffic-isnt-converting/">Read: why your traffic isn't converting<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </section>
-
-        <section class="service-detail grid reveal" id="cro" aria-labelledby="cro-title">
-          <div class="lg-4">
-            <span class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-cro"/></svg></span>
-            <h2 id="cro-title">Conversion rate optimization</h2>
-          </div>
-          <div class="lg-8">
-            <p>Conversion rate optimization (CRO) means helping more of your existing visitors take the next step. We find where people hesitate or leave, then test clear, specific changes.</p>
-            <p class="what-you-get-line"><strong>What you get:</strong> a review of your key pages and forms, a list of test ideas ranked by expected effort and impact, and test results with recommendations.</p>
-            <a class="link-arrow" href="/contact/?service=cro#enquiry" data-track="cta_click" data-cta-name="service_enquiry" data-cta-location="services_cro">Ask about conversion optimization <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+        <section class="service" id="digital-marketing" aria-labelledby="dm-h">
+          <div><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-marketing"/></svg></span><h2 id="dm-h">Digital marketing</h2></div>
+          <div>
+            <p class="lead">We plan and run campaigns across search, social, and email. Each campaign has a clear goal and is measured from the start, so budget moves to what works.</p>
+            <dl><dt>Good fit if</dt><dd>You spend on marketing but can't tell which channels bring customers.</dd><dt>What you get</dt><dd>A channel plan, campaign setup and management, and regular plain-language reports.</dd></dl>
           </div>
         </section>
-
-        <section class="service-detail grid reveal" id="strategy" aria-labelledby="strategy-title">
-          <div class="lg-4">
-            <span class="card__icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-strategy"/></svg></span>
-            <h2 id="strategy-title">Digital strategy consulting</h2>
-          </div>
-          <div class="lg-8">
-            <p>A practical plan for where to spend time and budget online, based on your goals, your market, and your data. We also set the measures that will show whether it is working.</p>
-            <p class="what-you-get-line"><strong>What you get:</strong> a written strategy with priorities, a 90-day action plan, and agreed success measures. Ongoing advisory sessions are available.</p>
-            <a class="link-arrow" href="{{BOOKING_URL}}" data-track="cta_click" data-cta-name="book_consultation" data-cta-location="services_strategy">Book a Consultation <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+        <section class="service" id="strategy" aria-labelledby="strat-h">
+          <div><span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-strategy"/></svg></span><h2 id="strat-h">Digital strategy consulting</h2></div>
+          <div>
+            <p class="lead">A practical plan for where to spend time and money online, based on your goals and your data, with clear ways to tell if it's working.</p>
+            <dl><dt>Good fit if</dt><dd>You're unsure where to focus, or you're about to make a big digital decision.</dd><dt>What you get</dt><dd>A written strategy, a 90-day action plan, and agreed measures of success.</dd></dl>
+            <a class="link-arrow" href="{{CONSULT_URL}}" data-event="consult_click" data-location="services_strategy">Book a Consultation<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </section>
-
       </div>
     </div>
 
-    <section class="section section--alt" aria-labelledby="faq-title">
-      <div class="container grid">
-        <div class="lg-4">
-          <p class="eyebrow">Questions</p>
-          <h2 id="faq-title">Questions about our services</h2>
+    <section class="section section--alt" aria-labelledby="ways-h">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow">Ways to work with us</p><h2 id="ways-h">Start small. Grow only if it's working.</h2></div>
+        <div class="options">
+          <article class="option option--first" aria-labelledby="opt1">
+            <p class="label">Start here</p>
+            <h3 id="opt1">Audit</h3>
+            <dl><dt>What it is</dt><dd>A one-off review of your website, analytics, search visibility, and conversion path.</dd><dt>Best for</dt><dd>Businesses that want a clear picture before spending more.</dd><dt>Output</dt><dd>A report, a prioritised action list, and a walkthrough call. Free.</dd></dl>
+            <a class="btn btn--primary" href="/audit/" data-event="audit_cta_click" data-location="services_options">Request a Website Audit<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+          </article>
+          <article class="option" aria-labelledby="opt2">
+            <p class="label">Defined scope</p>
+            <h3 id="opt2">Project</h3>
+            <dl><dt>What it is</dt><dd>A defined piece of work with a fixed scope and timeline, such as rebuilding your GA4 setup or fixing technical SEO issues.</dd><dt>Best for</dt><dd>Businesses that know what needs fixing and want it done properly.</dd><dt>Output</dt><dd>The agreed changes, documented, with a before-and-after measurement.</dd></dl>
+          </article>
+          <article class="option" aria-labelledby="opt3">
+            <p class="label">Monthly</p>
+            <h3 id="opt3">Ongoing support</h3>
+            <dl><dt>What it is</dt><dd>A monthly cycle of measure, improve, and report.</dd><dt>Best for</dt><dd>Businesses that want steady improvement and someone watching the numbers.</dd><dt>Output</dt><dd>Agreed monthly work, a plain-language report, and a review call. Notice period: <span class="ph">[PLACEHOLDER: e.g. one month]</span></dd></dl>
+          </article>
         </div>
-        <div class="lg-8">
-          <div class="faq">
-            <details class="faq__item">
-              <summary>What is the difference between SEO, GEO, and AEO?</summary>
-              <div class="faq__answer"><p>SEO helps your pages appear in search results. GEO helps AI tools understand and mention your business in the answers they write. AEO structures your content as direct answers that search engines and voice assistants can show. All three rely on clear, accurate, well-structured content.</p></div>
-            </details>
-            <details class="faq__item">
-              <summary>Which service should I start with?</summary>
-              <div class="faq__answer"><p>Most businesses should start with a website audit. It shows what is working, what is not, and which services will make the biggest difference, so you do not pay for work you do not need.</p></div>
-            </details>
-            <details class="faq__item">
-              <summary>Why does GA4 setup matter?</summary>
-              <div class="faq__answer"><p>Without reliable measurement, you cannot tell which marketing is working. A correct GA4 setup records the actions that matter, such as enquiries and purchases, so decisions are based on evidence.</p></div>
-            </details>
-            <details class="faq__item">
-              <summary>Can you work with my existing web developer or agency?</summary>
-              <div class="faq__answer"><p>Yes. We can provide clear specifications for your developer, review their changes, or make the changes ourselves, depending on what suits your team.</p></div>
-            </details>
-            <details class="faq__item">
-              <summary>Do you guarantee rankings or a specific return on investment?</summary>
-              <div class="faq__answer"><p>No. Search engines and AI tools control what they show, and results depend on many factors. We agree clear goals at the start, report honestly on progress, and adjust the plan based on the data.</p></div>
-            </details>
-            <details class="faq__item">
-              <summary>How much do your services cost?</summary>
-              <div class="faq__answer"><p>Pricing depends on the scope of work. <span class="ph">[PLACEHOLDER: pricing approach, e.g. fixed-price audits and monthly retainers, with starting prices if you want to publish them]</span></p></div>
-            </details>
+        <p class="small muted mt-3">Prices for projects and ongoing support depend on scope and are confirmed in writing before any work starts.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="scope-h">
+      <div class="container">
+        <div class="section-head"><p class="eyebrow">Scope</p><h2 id="scope-h">What we do, and what we don't</h2></div>
+        <div class="split">
+          <div class="panel"><h3 class="label">We do</h3>
+            <ul class="checks">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Analytics setup and repair</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Technical and on-page SEO</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Content for search and AI answers</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Conversion reviews and testing</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Campaign planning and management</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg><span>Strategy and plain-language reporting</span></li>
+            </ul>
+          </div>
+          <div class="panel"><h3 class="label">We don't</h3>
+            <ul class="checks checks--x">
+              <li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg><span>Guarantee rankings or revenue</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg><span>Buy links or use tactics that break search engine rules</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg><span>Write fake reviews or testimonials</span></li>
+              <li><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg><span><span class="ph">[PLACEHOLDER: confirm, e.g. build new websites from scratch]</span></span></li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="cta-band" aria-labelledby="cta-title">
-      <svg class="cta-band__pattern" viewBox="0 0 400 200" fill="none" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="1.5"><path d="M0 180 C 80 170, 120 120, 200 110 S 320 40, 400 20"/><path d="M0 200H400M0 150H400M0 100H400M0 50H400" stroke-width="1"/></g></svg>
+    {{RULE}}
+
+    <section class="section" id="faq" aria-labelledby="faq-h">
+      <div class="container grid">
+        <div class="lg-4"><p class="eyebrow">FAQ</p><h2 id="faq-h">Buyer questions, answered</h2></div>
+        <div class="lg-right-8">
+          <div class="faq">
+            <details class="faq__item"><summary>How long does it take to see results?</summary><div class="faq__answer"><p>It depends on the work. Fixes to tracking and conversion can show an effect within weeks. SEO and AI-answer visibility usually take several months, because search engines and AI tools need time to notice changes. We agree a realistic timeline at the start and measure against it.</p></div></details>
+            <details class="faq__item"><summary>What do you need from me to get started?</summary><div class="faq__answer"><p>Your website address, your main business goal, and read-only access to Google Analytics 4 and Google Search Console if you have them. We also ask you to answer a short questionnaire about your customers.</p></div></details>
+            <details class="faq__item"><summary>How do you report progress?</summary><div class="faq__answer"><p>You get a short written report <span class="ph">[PLACEHOLDER: e.g. monthly]</span> that shows what we did, what changed, and what we recommend next. It is written in plain language, with the numbers explained.</p></div></details>
+            <details class="faq__item"><summary>Who owns the accounts and data?</summary><div class="faq__answer"><p>You do. Analytics, Search Console, and advertising accounts stay in your business's name. We work with access you grant and can remove at any time. If we stop working together, you keep everything.</p></div></details>
+            <details class="faq__item"><summary>Can you work with businesses in other time zones?</summary><div class="faq__answer"><p>Yes. Most of our work is done in writing and shared documents, so it doesn't depend on being online at the same time. We schedule calls in hours that overlap with yours. We are based in <span class="ph">[PLACEHOLDER: time zone]</span>.</p></div></details>
+            <details class="faq__item"><summary>What don't you do?</summary><div class="faq__answer"><p>We don't guarantee rankings or revenue, buy links, post fake reviews, or use tactics that break search engine rules. <span class="ph">[PLACEHOLDER: confirm other exclusions]</span></p></div></details>
+            <details class="faq__item"><summary>How do I start?</summary><div class="faq__answer"><p>Request a free website audit. It gives you, and us, a clear picture of where you stand. If you'd rather talk first, book a consultation.</p></div></details>
+            <details class="faq__item"><summary>How do you handle confidentiality?</summary><div class="faq__answer"><p>We treat everything you share as confidential. We use read-only access where possible, don't share your data with anyone else, and don't name you as a client without written permission. <span class="ph">[PLACEHOLDER: confirm "We are happy to sign a non-disclosure agreement."]</span></p></div></details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" aria-labelledby="cta-h">
+      {{SIGNAL_FIELD}}
       <div class="container">
         <p class="eyebrow">Not sure which service you need?</p>
-        <h2 id="cta-title">Let the audit decide.</h2>
-        <p>A website audit shows which services will make the biggest difference for your business, and which you can skip.</p>
-        <div class="actions">
-          <a class="btn btn--primary btn--lg" href="/contact/?enquiry=audit#enquiry" data-track="cta_click" data-cta-name="request_audit" data-cta-location="services_cta_band">Request a Website Audit <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
-        </div>
+        <h2 id="cta-h">Let the audit decide.</h2>
+        <p>The free audit shows which services will make a difference for your business, and which you can skip.</p>
+        <div class="actions"><a class="btn btn--primary btn--lg" href="/audit/" data-event="audit_cta_click" data-location="services_band">Request a Website Audit<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
       </div>
     </section>

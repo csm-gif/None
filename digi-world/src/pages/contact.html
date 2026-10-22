@@ -1,135 +1,43 @@
 <!--page
 {
-  "title": "Contact: request a website audit or book a consultation",
-  "description": "Contact Digi World to request a website audit, book a consultation, or ask about SEO, GA4, GEO, AEO, or conversion work. Send an enquiry or email us directly.",
+  "title": "Contact Digi World",
+  "description": "Send Digi World a message or request a consultation. We reply to every enquiry with clear next steps.",
   "path": "/contact/",
   "nav": "contact",
   "pageType": "ContactPage",
-  "breadcrumbs": [{ "name": "Contact", "url": "{{SITE_URL}}/contact/" }]
+  "crumb": "Contact"
 }
 -->
-    <section class="page-hero">
+    <section class="page-hero" aria-labelledby="contact-h">
       <div class="container">
         <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Contact</li></ol></nav>
-        <h1>Contact</h1>
-        <p class="lead">Tell us about your business and what you want to improve. We will reply with clear next steps, whether that is an audit, a consultation, or a simple answer.</p>
+        <h1 id="contact-h">Contact us</h1>
+        <p class="lead">Tell us what you'd like to improve. We'll reply with clear next steps.</p>
       </div>
     </section>
 
-    <section class="section" aria-labelledby="enquiry-heading">
+    <section class="section section--alt" id="enquiry" aria-labelledby="form-h">
       <div class="container grid">
-        <div class="lg-7" id="enquiry">
-          <h2 id="enquiry-heading" data-form-heading>Send an enquiry</h2>
-          <p class="muted">Fields marked <span aria-hidden="true">*</span><span class="visually-hidden">with an asterisk</span> are required.</p>
-
-          <div class="form-status" data-form-status tabindex="-1" role="status" hidden></div>
-
-          <!--
-            FORM HANDLING
-            Default: mailto fallback. With no endpoint set, the form opens the visitor's email app
-            with a pre-filled message to {{EMAIL}}. Without JavaScript, the browser's own mailto
-            submission is used.
-            To use a form service instead, set FORM_ENDPOINT in build.mjs to
-            [PLACEHOLDER: form endpoint URL]. The script then POSTs the form data there as multipart/form-data
-            and shows the success or error state. Also change the form's action to the endpoint.
-          -->
-          <form class="form mt-3" action="mailto:{{EMAIL}}" method="post" enctype="text/plain" data-enquiry-form data-endpoint="{{FORM_ENDPOINT}}">
-            <div class="form-summary" data-form-summary tabindex="-1" hidden>
-              <h2>Please correct the following:</h2>
-              <ul></ul>
-            </div>
-
-            <input type="hidden" name="enquiry_type" value="general">
-
-            <div class="form__row form__row--2">
-              <div class="field">
-                <label for="f-name">Name <span aria-hidden="true">*</span></label>
-                <input id="f-name" name="name" type="text" autocomplete="name" required aria-describedby="f-name-error">
-                <p class="field__error" id="f-name-error"></p>
-              </div>
-              <div class="field">
-                <label for="f-email">Email <span aria-hidden="true">*</span></label>
-                <input id="f-email" name="email" type="email" autocomplete="email" inputmode="email" spellcheck="false" required aria-describedby="f-email-error">
-                <p class="field__error" id="f-email-error"></p>
-              </div>
-            </div>
-
-            <div class="form__row form__row--2">
-              <div class="field">
-                <label for="f-company">Company <span class="optional">(optional)</span></label>
-                <input id="f-company" name="company" type="text" autocomplete="organization">
-              </div>
-              <div class="field">
-                <label for="f-website">Website URL <span class="optional">(optional)</span></label>
-                <input id="f-website" name="website" type="text" inputmode="url" autocomplete="url" spellcheck="false" placeholder="www.example.com" aria-describedby="f-website-error">
-                <p class="field__error" id="f-website-error"></p>
-              </div>
-            </div>
-
-            <div class="field">
-              <label for="f-service">Service of interest <span aria-hidden="true">*</span></label>
-              <select id="f-service" name="service" required aria-describedby="f-service-error">
-                <option value="">Choose a service</option>
-                <option value="audit">Website and data audit</option>
-                <option value="digital-marketing">Digital marketing</option>
-                <option value="ga4">GA4 analytics and measurement setup</option>
-                <option value="seo">SEO</option>
-                <option value="geo">Generative Engine Optimization (GEO)</option>
-                <option value="aeo">Answer Engine Optimization (AEO)</option>
-                <option value="cro">Conversion rate optimization</option>
-                <option value="strategy">Digital strategy consulting</option>
-                <option value="not-sure">Not sure yet</option>
-              </select>
-              <p class="field__error" id="f-service-error"></p>
-            </div>
-
-            <div class="field">
-              <label for="f-message">Message <span aria-hidden="true">*</span></label>
-              <p class="field__hint" id="f-message-hint">What would you like to improve? Include any goals, deadlines, or questions.</p>
-              <textarea id="f-message" name="message" rows="6" required minlength="20" aria-describedby="f-message-hint f-message-error"></textarea>
-              <p class="field__error" id="f-message-error"></p>
-            </div>
-
-            <div class="hp-field" aria-hidden="true">
-              <label for="f-company-fax">Leave this field empty</label>
-              <input id="f-company-fax" name="company_fax" type="text" tabindex="-1" autocomplete="off">
-            </div>
-
-            <p class="privacy-note">We use your details only to reply to your enquiry. We do not add you to a mailing list or share your details. See our <a href="/privacy/">privacy policy</a>.</p>
-
-            <div>
-              <button class="btn btn--primary btn--lg" type="submit" data-track="cta_click" data-cta-name="submit_enquiry" data-cta-location="contact_form"><span data-submit-label>Send enquiry</span> <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button>
-            </div>
-          </form>
-
-          <template id="form-status-mailto">
-            <h2>Almost done: check your email app</h2>
-            <p>Your email app should now open with your enquiry filled in. Press send there to complete it.</p>
-            <p class="mb-0">If nothing opened, email us directly at <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p>
-          </template>
-          <template id="form-status-success">
-            <h2>Thank you. Your enquiry has been sent.</h2>
-            <p class="mb-0">We will reply to the email address you gave us. <span class="ph">[PLACEHOLDER: confirm response time, e.g. "within 2 working days"]</span></p>
-          </template>
-          <template id="form-status-error">
-            <h2>Sorry, your enquiry could not be sent.</h2>
-            <p class="mb-0">Please try again, or email us directly at <a href="mailto:{{EMAIL}}">{{EMAIL}}</a>.</p>
-          </template>
+        <div class="lg-7">
+          <div class="form-card">
+            <h2 id="form-h">Send a message</h2>
+            <p class="muted">All fields are required unless marked optional.</p>
+            {{FORM:contact}}
+          </div>
         </div>
-
-        <div class="lg-4 lg-start-9 contact-aside">
+        <div class="lg-right-4 stack" style="align-content:start">
           <div class="panel">
-            <h2>Email us directly</h2>
-            <p class="contact-line"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-mail"/></svg><a href="mailto:{{EMAIL}}" data-track="email_click" data-cta-location="contact_aside">{{EMAIL}}</a></p>
+            <p class="label"><svg class="icon icon--sm" aria-hidden="true" style="display:inline;vertical-align:-3px"><use href="#i-calendar"/></svg> Book a consultation</p>
+            <p>Online booking is coming soon. For now, choose <strong>Book a consultation</strong> in the form and suggest two or three times that suit you. Please include your time zone.</p>
           </div>
           <div class="panel">
-            <h2>Response time</h2>
-            <p class="contact-line mb-0"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-clock"/></svg><span>We reply to every enquiry. <span class="ph">[PLACEHOLDER: confirm response time and working days, e.g. "within 2 working days, Monday to Friday"]</span></span></p>
+            <p class="label"><svg class="icon icon--sm" aria-hidden="true" style="display:inline;vertical-align:-3px"><use href="#i-clock"/></svg> Response time</p>
+            <p>We reply within <span class="ph">[PLACEHOLDER: e.g. 2 working days]</span>.</p>
           </div>
           <div class="panel">
-            <h2>Prefer to talk?</h2>
-            <p>Book a consultation to discuss your goals and whether we are a good fit.</p>
-            <a class="link-arrow" href="{{BOOKING_URL}}" data-track="cta_click" data-cta-name="book_consultation" data-cta-location="contact_aside">Book a Consultation <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
+            <p class="label">Looking for an audit?</p>
+            <p>The audit page has a dedicated form and explains what's included.</p>
+            <a class="link-arrow" href="/audit/" data-event="audit_cta_click" data-location="contact_aside">Request a Website Audit<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
           </div>
         </div>
       </div>

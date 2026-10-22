@@ -1,223 +1,203 @@
 # Digi World website
 
-A static, framework-free marketing site for Digi World, a digital growth consultancy.
-It is plain HTML, CSS and about 9 KB of vanilla JS. A zero-dependency Node build assembles the pages.
+The site is static HTML, CSS and about 9 KB of vanilla JavaScript, with no frameworks. A zero-dependency Node build (`node build.mjs`, Node 18+) assembles the pages into `dist/`. It deploys on **Netlify** (recommended, because the forms use Netlify Forms), Cloudflare Pages, or GitHub Pages.
 
-```
-node build.mjs          # builds src/ -> dist/ (Node 18+; no npm install needed)
-npx serve dist          # or any static server, to preview locally
-```
-
-Deploy the contents of `dist/` to any static host. `dist/` is committed, so the site can be
-deployed without running the build.
+| Document | What's in it |
+|---|---|
+| `docs/phase-1-strategy-and-copy.md` | Positioning, headlines, tone, sitemap, all page copy, the articles |
+| `docs/phase-2-design-system.md` | The "noise into signal" concept, palette with contrast ratios, type, spacing, components and states |
+| `docs/qa-report.md` | Phase 4 self-QA results, including Lighthouse scores |
+| `page-weights.txt` | Per-page weight against the 150 KB budget (rewritten by every build) |
 
 ---
 
-## 1. Design rationale
-
-**Direction.** The site should feel like a quiet, well-run advisory firm, not a software product.
-The aim is calm, credible and editorial, with nothing that looks like a template.
-
-**Palette.** One restrained scheme, defined as CSS variables in `src/assets/css/site.css`:
-
-| Token | Hex | Use | Contrast on paper |
-|---|---|---|---|
-| `--ink` | `#0E1A2B` | Body text, dark bands, footer | 16.4:1 |
-| `--ink-2` | `#3B4656` | Secondary text | 8.9:1 |
-| `--muted` | `#5A6472` | Captions, hints | 5.7:1 |
-| `--paper` | `#F7F5F0` | Page background (warm off-white) | n/a |
-| `--accent` | `#0B6E69` | Links, primary buttons, data marks | 5.6:1 (white on it: 6.1:1) |
-| `--accent-on-ink` | `#6FD1C3` | Accent on dark sections | 9.6:1 on ink |
-
-Deep ink reads as serious and trustworthy without the coldness of pure black. Warm paper makes
-long reading comfortable. A single teal accent signals "data" and "action", and it is used
-sparingly, so the eye always finds the next step. All text meets WCAG AA, and most meets AAA.
-
-**Typography.**
-- **Newsreader** (headings): a refined, editorial serif. It gives the boutique-consultancy tone and is
-  readable at large sizes.
-- **Inter** (body): highly legible at small sizes on screen, with neutral international character
-  coverage.
-
-Both are self-hosted variable fonts (latin subset, about 106 KB total, OFL licence) with
-`font-display: swap` and preloading. The type scale is 1.25 (major third) on a 17px base. Paragraph
-width is capped at 68ch (inside the 60 to 75 character target).
-
-**Layout and motion.**
-- **Spacing and grid:** an 8px spacing scale (`--s-1` to `--s-8`), a 12-column CSS grid, and 1200px
-  max content width.
-- **Imagery:** inline SVG line icons and simple chart and diagram motifs, with no photos.
-- **Motion:** a 280ms fade/slide on scroll and hover states of 240ms or less. All motion is
-  disabled under `prefers-reduced-motion`.
-
-## 2. Folder structure
+## File structure
 
 ```
+netlify.toml                      # Netlify build settings (repo root)
 digi-world/
-├── build.mjs                  # build script + site CONFIG (domain, email, booking URL, form endpoint)
+├── build.mjs                     # build script + CONFIG (domain, GA4 ID, booking URL, public email)
+├── tools/                        # wordmark generator (font outlines -> SVG)
 ├── src/
-│   ├── partials/
-│   │   ├── layout.html        # <head>: SEO/OG/Twitter tags, GA4 snippet (commented), JSON-LD
-│   │   ├── header.html        # sticky header, 7-item nav, persistent audit CTA, mobile menu
-│   │   ├── footer.html
-│   │   └── icons.svg          # inline SVG sprite (logo + service icons)
-│   ├── pages/                 # one file per page; JSON front matter + <main> content
-│   │   ├── index.html         # /            Home
-│   │   ├── about.html         # /about/
-│   │   ├── services.html      # /services/   (8 services with anchors, FAQ)
-│   │   ├── process.html       # /process/    (Our Process)
-│   │   ├── case-studies.html  # /case-studies/ (template only)
-│   │   ├── insights.html      # /insights/
-│   │   ├── insights/article-template.html   # /insights/article-template/ (noindex)
-│   │   ├── contact.html       # /contact/
-│   │   ├── privacy.html, terms.html, 404.html   (noindex)
-│   ├── assets/
-│   │   ├── css/site.css       # the only stylesheet (inlined into every page at build)
-│   │   ├── js/main.js         # menu, reveal-on-scroll, event tracking, form
-│   │   ├── fonts/             # Newsreader + Inter woff2 and licences
-│   │   └── img/               # favicon.svg, og-image.png, touch icons, article placeholder
-│   └── static/                # copied to site root: favicon.ico, site.webmanifest, _headers
-└── dist/                      # build output (deploy this)
+│   ├── partials/                 # layout (head, SEO, JSON-LD), header, footer, consent bar, icon sprite, wordmark
+│   ├── pages/                    # one HTML file per page, with JSON front matter
+│   │   ├── index, audit, services, process, insights, about, contact
+│   │   ├── thank-you, 404, privacy, terms        (noindex)
+│   │   └── case-studies                          (hidden template, noindex, not linked)
+│   ├── content/insights/*.md     # the three articles (Markdown + JSON front matter)
+│   ├── assets/css/site.css       # the whole design system (inlined into each page at build)
+│   ├── assets/js/main.js         # menu, consent + GA4 loader, events, form validation/submission
+│   ├── assets/fonts/             # IBM Plex Sans (variable) + IBM Plex Mono 500, OFL licence
+│   ├── assets/img/               # logo.svg, favicon.svg, og-image.png, touch/manifest icons
+│   └── static/                   # favicon.ico, site.webmanifest, _headers, .nojekyll
+└── dist/                         # build output (Netlify rebuilds this itself)
 ```
 
-**What the build does:**
-- Inlines the CSS (25 KB raw, about 6 KB gzipped), so there are no render-blocking requests.
-- Writes clean folder URLs, one per page.
-- Sets the canonical URL and Open Graph/Twitter tags for each page.
-- Marks the current nav item with `aria-current`.
-- Builds a JSON-LD `@graph` for each page:
-  - Organization, WebSite, WebPage and BreadcrumbList on every page.
-  - Service ×8 on Services, HowTo on Process, and Article on the article template.
-  - FAQPage on Home and Services, generated from the visible FAQ markup so the two never drift.
-- Generates `sitemap.xml` (indexable pages only) and `robots.txt`.
-- Fails if any page has more or fewer than one `<h1>`.
+**Adding an article:** copy a file in `src/content/insights/` and edit its front matter and body. Keep the `**Short answer:**` line and the `## Frequently asked questions` section. Rebuild, and it appears on Insights, in the sitemap, and with Article and FAQPage JSON-LD.
 
-### Enquiry form: how it is wired
+**Enabling Case Studies:** in `src/pages/case-studies.html`:
+1. Set `"hidden": false`.
+2. Replace the template with a real case study that the client has approved.
+3. Add a nav link in `src/partials/header.html`. Keep the menu to 7 items or fewer.
 
-**Current setting: mailto fallback.** `FORM_ENDPOINT` in `build.mjs` is empty, so after inline
-validation the form opens the visitor's email app with a pre-filled message to
-`wealthop202@gmail.com`. A status message explains this, and the form stays on screen so nothing is
-lost if no email app opens. Without JavaScript, the browser's native `mailto:` submit is used.
+---
 
-**To switch to a real endpoint** (recommended: mailto depends on the visitor having an email app):
-1. Set `FORM_ENDPOINT` to the endpoint URL, for example a form service or your own handler.
-2. Change the form's `action` in `contact.html` to the same URL.
-3. Rebuild.
+## Deploy on Netlify (free)
 
-With an endpoint set, the form data is POSTed as `multipart/form-data` and the page shows a success
-or error state. A hidden honeypot field (`company_fax`) filters simple bots.
+1. **Connect the repo.** Sign in at netlify.com, then choose **Add new site → Import an existing project → GitHub → `csm-gif/None`**. Netlify reads `netlify.toml`, so the base directory, build command and publish directory are set automatically. Pick the `claude/confident-archimedes-qunid4` branch, or `main` once merged, and choose **Deploy**.
+2. **Name it.** Under **Site configuration → Change site name**, choose e.g. `digi-world`, which gives `https://digi-world.netlify.app`. Canonical tags and the sitemap use Netlify's URL automatically.
+3. **Turn on form emails.** See Forms below.
 
-**Pre-filling from links:**
-- `?enquiry=audit` and `?enquiry=consultation` change the form heading and button label, and set a
-  hidden `enquiry_type` field.
-- `?service=seo` (or another service key) pre-selects the service.
+The free Netlify plan covers this site, including form submissions within the plan's monthly allowance.
 
-### Analytics
+## Forms (Netlify Forms)
 
-- **GA4 snippet:** in `src/partials/layout.html`, commented out and wrapped in Consent Mode v2
-  defaults (all storage denied). Nothing tracks until you add a consent tool and uncomment it.
-- **Event attributes on CTAs:** `data-track` (event name), `data-cta-name` and `data-cta-location`.
-  `main.js` sends these as GA4 events only when `gtag` exists.
-- **Events you will see:**
-  - `cta_click`, with `cta_name` set to `request_audit`, `book_consultation`, `service_enquiry` or
-    `submit_enquiry`.
-  - `email_click`.
-  - `generate_lead` on a valid form submission, with `method` set to `mailto` or `form`.
+Both forms (`audit` and `contact`) are already marked up for Netlify Forms, with a `netlify-honeypot` spam trap. To finish the setup:
 
-## 3. Placeholders to fill in
+1. **Enable form detection.** After the first deploy, go to **Forms** in the Netlify dashboard and choose **Enable form detection**, then trigger a redeploy (**Deploys → Trigger deploy**). The `audit` and `contact` forms will appear.
+2. **Add the email notification.** Under **Site configuration → Notifications → Emails and webhooks → Form submission notifications → Add notification → Email notification**, enter `wealthop202@gmail.com` and choose "Any form".
+3. **Test it.** Submit both forms on the live site. You should land on `/thank-you/`, the entry should appear under **Forms**, and the email should arrive. Check your spam folder the first time.
 
-Placeholders are marked `[PLACEHOLDER: ...]`. On the page they are wrapped in a yellow highlight
-(`<span class="ph">`) so you can spot them; remove the span when you replace the text. Run
-`grep -rn "PLACEHOLDER" src build.mjs` to find any you have missed.
+**How it works:**
+- The script validates the form, then POSTs it to Netlify and redirects to `/thank-you/`.
+- **If JavaScript is off:** the browser posts the form normally, and Netlify redirects to `/thank-you/`.
+- **If the backend can't be reached** (for example on the GitHub Pages preview, which has no form backend): visitors see a clear message and a one-click email fallback with their message filled in, so nothing is lost.
 
-**Site-wide configuration (`build.mjs` → `CONFIG`)**
-- [ ] `SITE_URL`: production domain (currently `https://www.example.com`; used for canonicals, OG, sitemap and JSON-LD)
-- [ ] `BOOKING_URL`: booking/scheduling link for "Book a Consultation" (currently the contact form)
-- [ ] `FORM_ENDPOINT`: form-handling endpoint (currently empty, so the mailto fallback is used)
-- [ ] `SAME_AS`: official social profile URLs for the Organization schema
+## Analytics (GA4) and consent
 
-**Head / analytics (`src/partials/layout.html`)**
-- [ ] GA4 measurement ID (`G-XXXXXXXXXX`, appears twice)
-- [ ] Consent banner / consent management tool (required before enabling GA4)
-- [ ] X/Twitter handle (optional `twitter:site`)
+- **Turning it on:** set `GA4_ID` in `build.mjs` to your real measurement ID and rebuild.
+- **When it loads:** GA4 loads only after a visitor chooses **Accept analytics** in the consent bar, and never while the ID is still the placeholder. The choice is stored in the visitor's browser, and "Cookie settings" in the footer reopens the bar.
+- **Tracked events:** pushed to `dataLayer` (no cookies), and sent to GA4 once consent is given:
 
-**Footer**
-- [ ] Registered business name and registration details, if required
+| Event | Fires when |
+|---|---|
+| `audit_cta_click` | Any "Request a Website Audit" link (`data-event` attribute, with `location`) |
+| `consult_click` | Any "Book a Consultation" link |
+| `form_start` | First interaction with a form (`form_name`) |
+| `form_submit` | Successful submission (`form_name`, `service`) |
 
-**Home**
-- [ ] Audit price (or "free initial audit"), turnaround time and delivery format
-- [ ] Regions, time zones and other languages you support (FAQ)
+- **In GA4:** mark `form_submit` as a key event.
+
+## Booking
+
+Until `BOOKING_URL` is set in `build.mjs`, every "Book a Consultation" link goes to `/contact/?type=consultation`. That pre-selects "Book a consultation" and shows a note asking for preferred times and time zone. Set the URL to your Calendly or Cal.com link and rebuild.
+
+## International
+
+Copy uses neutral, idiom-free English with no region-specific references. If you add translations later:
+- Put each language under its own path, such as `/fr/`.
+- Add `<link rel="alternate" hreflang="…">` tags for every language version, plus `x-default`, in `src/partials/layout.html`.
+- Add the language versions to the sitemap.
+
+## GitHub Pages preview
+
+The current preview at `https://csm-gif.github.io/None/` is built with:
+
+```
+SITE_URL=https://csm-gif.github.io/None BASE_PATH=/None OUT_DIR=/tmp/pages node build.mjs
+```
+
+and published to the `gh-pages` branch. GitHub Pages can't receive form posts, so forms there show the email fallback. Use Netlify for the real launch.
+
+---
+
+## Placeholders to supply
+
+On the site, each placeholder is highlighted in yellow. Run `grep -rn PLACEHOLDER src build.mjs` to find any that are left.
+
+**Site-wide and configuration**
+
+| # | Placeholder | Where | Notes |
+|---|---|---|---|
+| 1 | Production domain | `build.mjs` → `SITE_URL` | Netlify builds use the site URL automatically; set this only for a custom domain. |
+| 2 | Domain email (public) | `build.mjs` → `PUBLIC_EMAIL`; Privacy §1 | Until set, no email address is shown publicly. |
+| 3 | GA4 measurement ID | `build.mjs` → `GA4_ID` | Format `G-XXXXXXXXXX`. |
+| 4 | Booking URL (Calendly/Cal.com) | `build.mjs` → `BOOKING_URL` | |
+| 5 | Social profile URLs | `build.mjs` → `SAME_AS` | Used in Organization schema. |
+| 6 | Registered business name | Footer | Only if different from "Digi World". |
+
+**Offer and process**
+
+| # | Placeholder | Where | Notes |
+|---|---|---|---|
+| 7 | Audit turnaround | Audit page (hero, FAQ, "What you receive") | e.g. 5–10 working days. |
+| 8 | Report length | Audit page | e.g. 15–25 pages. |
+| 9 | Walkthrough call length | Audit page | e.g. 45 minutes. |
+| 10 | Audit qualifying criteria | Audit page | Or delete the line if every business qualifies. |
+| 11 | NDA policy | Audit FAQ; Services FAQ (confidentiality) | |
+| 12 | Response time | Audit form intro; Contact; Thank-you | e.g. 2 working days. |
+| 13 | Reporting frequency | Services FAQ; Process | e.g. monthly. |
+| 14 | First-30-days timings | Home; Process | Confirm or adjust. |
+| 15 | Ongoing-support notice period | Services → Ways to work with us | |
+| 16 | Other exclusions ("We don't…") | Home FAQ; Services FAQ and scope list | e.g. building new websites. |
+| 17 | Time zone | Services FAQ | |
+| 18 | Tools you use | Process → Tools | List only confirmed tools. |
 
 **About**
-- [ ] Founder name, role, and a 60 to 100 word bio (verifiable facts only)
-- [ ] Optional professional photo (or keep the monogram)
-- [ ] Location, year founded (optional), languages, and verifiable qualifications (or remove that line)
-- [ ] Confirm the six principles reflect how you actually work, especially "You own your accounts and data"
 
-**Services**
-- [ ] Confirm each "What you get" line matches what you actually deliver (for example "90-day action plan", "monthly visibility reporting", "ongoing advisory sessions")
-- [ ] Audit price / turnaround
-- [ ] Pricing approach (FAQ answer)
+| # | Placeholder | Where | Notes |
+|---|---|---|---|
+| 19 | Founder photo | About | Square, at least 600×600; export as WebP/AVIF with width/height set. |
+| 20 | Founder name, role, bio | About | 60–100 words, verifiable facts only. |
+| 21 | Location / time zone and languages | About | |
 
-**Our Process**
-- [ ] Typical durations for Audit, Strategy and Implement, and the reporting frequency
+**Legal**
 
-**Case Studies** (3 template cards)
-- [ ] Title, client or sector, market, period, services used, challenge, approach and verified outcome. Publish only with written client permission, and remove the "Case study coming soon" badge.
+| # | Placeholder | Where | Notes |
+|---|---|---|---|
+| 22 | Legal name, address, jurisdiction, dates | Privacy; Terms | Both pages are drafts and **need legal review**. |
+| 23 | Retention period; other processors; international transfers | Privacy | |
 
-**Insights**
-- [ ] Publish date and one-sentence summary for each of the 3 cards; point each card at its real article URL
-- [ ] For each article, copy `src/pages/insights/article-template.html` and fill in: title, meta description, topic, intro, author, date, reading time, short answer, section headings and body, figure and caption, FAQ, and the Article JSON-LD dates and author. Remove `"noindex": true`.
+**Hidden page**
 
-**Contact**
-- [ ] Response time and working days (shown in the sidebar and the success message)
+| # | Placeholder | Where | Notes |
+|---|---|---|---|
+| 24 | Case-study content | Case Studies | Only when you have real, approved work. |
 
-**Privacy policy and Terms of use**
-- [ ] Full legal text, reviewed for your jurisdiction (the pages currently list what each should cover). Remove `"noindex": true` once the text is final, if you want them indexed.
+---
 
-## 4. Pre-launch checklist
+## Launch checklist
 
-### SEO
-- [ ] `SITE_URL` set to the live domain; rebuild; check canonical tags on every page point to it
-- [ ] `https://` enforced and one host version chosen (www or not), with redirects from the other
-- [ ] Unique `<title>` and meta description on each page (set in each page's front matter)
-- [ ] `sitemap.xml` and `robots.txt` reachable at the root; sitemap submitted in Google Search Console and Bing Webmaster Tools
-- [ ] Host serves `404.html` for missing pages with a real 404 status
-- [ ] JSON-LD validated in the Schema.org validator and Google Rich Results Test (Home, Services, Process)
-- [ ] OG image checked with a social preview tool (LinkedIn Post Inspector and similar)
-- [ ] Remove `noindex` only from pages that are ready (article copies, legal pages)
+**Domain and SSL**
+- [ ] DNS: in Netlify, go to **Domain management → Add a domain**, then point your domain's DNS at Netlify (Netlify DNS, or A/CNAME records as shown). Set the www or apex redirect.
+- [ ] SSL: in **Domain management → HTTPS**, confirm the certificate is issued. Turn on **Force HTTPS** if it isn't already on.
+- [ ] Set `SITE_URL` to the custom domain (or rely on Netlify's primary domain), rebuild, and check the canonical tags and `sitemap.xml`.
 
-### GEO / AEO
-- [ ] FAQ answers on Home and Services are accurate and stand on their own as quotable answers
-- [ ] Business name, email and description are identical everywhere they appear (site, social profiles, directories)
-- [ ] Add `SAME_AS` profiles so AI tools can connect your entities
-- [ ] After launch, ask the main AI assistants "What is Digi World?" and record the answers as a baseline
+**Forms**
+- [ ] Form test: submit the Audit and Contact forms on the live site. Confirm the redirect to `/thank-you/`, the entry in Netlify **Forms**, and the email at wealthop202@gmail.com.
+- [ ] Spam: check that the honeypot is active (Netlify shows spam under **Forms → Spam**).
 
-### Accessibility (target WCAG 2.2 AA)
-- [x] axe-core run on every page at 360, 768 and 1280px: no violations at build time
-- [ ] Re-run axe or Lighthouse after content is filled in (new text can change contrast or heading order)
-- [ ] Keyboard-only pass: skip link, menu (Esc closes it), FAQ accordions, form errors and success state
-- [ ] Screen-reader spot check (VoiceOver or NVDA) of the contact form, including the error summary
-- [ ] Every new image has meaningful `alt` text (or `alt=""` if decorative)
-- [ ] Still one `<h1>` per page (the build enforces this)
+**Analytics**
+- [ ] GA4 test: set `GA4_ID`, deploy, and accept analytics in a private window.
+  - In GA4 **Realtime** or **DebugView**, confirm `page_view`, `audit_cta_click`, `form_start` and `form_submit` arrive.
+  - Decline in another private window and confirm nothing loads.
+- [ ] Mark `form_submit` as a key event in GA4. Set data retention to 14 months.
 
-### Performance
-- [ ] Lighthouse (mobile and desktop) 95+ in all four categories on the deployed site
-- [ ] Caching headers applied (`dist/_headers` for Netlify/Cloudflare Pages; replicate on other hosts)
-- [ ] HTTP/2 or HTTP/3 and Brotli/gzip compression enabled on the host
-- [ ] New images in AVIF/WebP, with `width`/`height`, `loading="lazy"` and `decoding="async"` (pattern in the article template)
-- [ ] Do not add third-party widgets (chat, embeds, sliders) without re-testing
+**Search**
+- [ ] Search Console: add and verify the domain property, then submit `https://<domain>/sitemap.xml`. Do the same in Bing Webmaster Tools.
+- [ ] Sitemap: open `/sitemap.xml` and `/robots.txt` on the live domain and check the URLs.
+- [ ] 404 test: open `https://<domain>/does-not-exist` and confirm the custom 404 page appears with a 404 status.
+- [ ] Share preview: check the OG image with a link preview tool (LinkedIn Post Inspector or similar).
 
-### Analytics and privacy
-- [ ] Consent tool installed and tested; GA4 snippet uncommented with the real measurement ID
-- [ ] In GA4 DebugView, confirm `cta_click`, `email_click` and `generate_lead` arrive with their parameters
-- [ ] Mark `generate_lead` as a key event in GA4
-- [ ] Privacy policy describes the form, email handling, analytics and retention
-- [ ] Form endpoint configured (recommended) and a test enquiry received end to end
-- [ ] Google Search Console verified; link it to GA4
+**Final checks**
+- [ ] Lighthouse: re-run on the live domain, on mobile, for Home, Audit and one article.
+- [ ] Placeholders: replace all of them, or consciously leave any that are acceptable for launch, and remove their yellow highlight.
+- [ ] Legal: have a legal adviser review Privacy and Terms, then remove the "Draft" notes.
 
-### Content and copy
-- [ ] All `[PLACEHOLDER]` items replaced (`grep -rn "PLACEHOLDER" src build.mjs` returns nothing except article-template guidance)
-- [ ] No invented claims: every statement about results, clients or credentials can be evidenced
-- [ ] Contact email tested (`wealthop202@gmail.com`). Consider a domain email address for credibility once the domain is live.
-- [ ] Spelling, links and every CTA checked on a real phone
+## First 30 days after launch
+
+1. **Week 1:**
+   - Confirm forms and GA4 work end to end.
+   - Submit the sitemap in Search Console.
+   - Fill the remaining placeholders: founder, response time, tools.
+2. **Week 1:** set up a domain email and replace the public-email placeholder. A domain address builds more trust than a free email service.
+3. **Week 2:** run free audits for two or three friendly businesses. Ask for permission up front to anonymise the findings as a case study.
+4. **Week 2:** collect real testimonials from those clients, in writing and with permission to publish. Never edit their meaning.
+5. **Week 3:** publish the first case study (enable the hidden page) with measured, dated results and the data source.
+6. **Week 3:** connect the booking tool and set `BOOKING_URL`.
+7. **Weeks 3–4:** publish one new Insights article answering a question prospects actually asked during the audits.
+8. **Week 4:**
+   - Review Search Console queries and GA4 key events.
+   - Note which pages bring audit requests.
+   - Change one thing on the weakest page, and log the date of the change.
+9. **Ongoing:** check how AI tools describe Digi World monthly, and keep the business name, description and links consistent across profiles.

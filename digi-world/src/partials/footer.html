@@ -1,36 +1,41 @@
 <footer class="site-footer">
     <div class="container">
-      <div class="grid site-footer__top">
-        <div class="lg-5">
-          <a class="brand brand--footer" href="/" aria-label="Digi World, home">
-            <svg class="brand__mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><use href="#logo-mark"/></svg>
-            <span class="brand__name">Digi World</span>
-          </a>
-          <p class="site-footer__tagline">A digital growth consultancy. Clear thinking, honest reporting, and measurable work for small and mid-sized businesses.</p>
-          <p><a class="site-footer__email" href="mailto:{{EMAIL}}" data-track="email_click" data-cta-location="footer">{{EMAIL}}</a></p>
+      <div class="site-footer__top">
+        <div class="site-footer__brand">
+          <a class="brand" href="/" aria-label="Digi World home"><svg class="wordmark" viewBox="{{WORDMARK_VIEWBOX}}" aria-hidden="true" focusable="false"><use href="#wordmark"/></svg></a>
+          <p>A digital growth consultancy. We measure first, then recommend.</p>
+          <a class="btn btn--primary" href="/audit/" data-event="audit_cta_click" data-location="footer">Request a Website Audit<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
         </div>
-        <nav class="lg-3 md-6" aria-label="Footer">
-          <h2 class="site-footer__heading">Site</h2>
-          <ul class="site-footer__list" role="list">
-            <li><a href="/about/">About</a></li>
-            <li><a href="/services/">Services</a></li>
-            <li><a href="/process/">Our Process</a></li>
-            <li><a href="/case-studies/">Case Studies</a></li>
-            <li><a href="/insights/">Insights</a></li>
-            <li><a href="/contact/">Contact</a></li>
+        <nav aria-label="Footer: services">
+          <h2 class="label">Services</h2>
+          <ul role="list">
+            <li><a href="/services/#ga4-analytics">GA4 analytics</a></li>
+            <li><a href="/services/#seo">SEO</a></li>
+            <li><a href="/services/#geo">GEO: AI search visibility</a></li>
+            <li><a href="/services/#aeo">AEO: answer visibility</a></li>
+            <li><a href="/services/#cro">Conversion optimization</a></li>
+            <li><a href="/services/#digital-marketing">Digital marketing</a></li>
+            <li><a href="/services/#strategy">Strategy consulting</a></li>
           </ul>
         </nav>
-        <div class="lg-4 md-6">
-          <h2 class="site-footer__heading">Next step</h2>
-          <p class="site-footer__note">Not sure where to start? A website audit shows what is working, what is not, and what to fix first.</p>
-          <a class="btn btn--primary" href="/contact/?enquiry=audit#enquiry" data-track="cta_click" data-cta-name="request_audit" data-cta-location="footer">Request a Website Audit</a>
-        </div>
+        <nav aria-label="Footer: company">
+          <h2 class="label">Company</h2>
+          <ul role="list">
+            <li><a href="/audit/">Free website audit</a></li>
+            <li><a href="/process/">How we work</a></li>
+            <li><a href="/insights/">Insights</a></li>
+            <li><a href="/about/">About</a></li>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="{{CONSULT_URL}}" data-event="consult_click" data-location="footer">Book a Consultation</a></li>
+          </ul>
+        </nav>
       </div>
       <div class="site-footer__bottom">
-        <p>&copy; {{YEAR}} Digi World. <span class="ph">[PLACEHOLDER: registered business name and registration details, if required]</span></p>
-        <ul class="site-footer__legal" role="list">
-          <li><a href="/privacy/">Privacy policy</a></li>
-          <li><a href="/terms/">Terms of use</a></li>
+        <p>&copy; {{YEAR}} Digi World <span class="ph">[PLACEHOLDER: registered business name, if different]</span></p>
+        <ul role="list">
+          <li><a href="/privacy/">Privacy</a></li>
+          <li><a href="/terms/">Terms</a></li>
+          <li><button type="button" class="linklike" data-consent-open>Cookie settings</button></li>
         </ul>
       </div>
     </div>

@@ -1,131 +1,37 @@
 <!--page
 {
   "title": "Case studies",
-  "description": "Digi World case studies: the challenge, our approach, and the measured outcome for each client engagement. New case studies are published with client permission.",
+  "description": "Digi World case studies: real projects, published with client permission, with measured results.",
   "path": "/case-studies/",
-  "nav": "case-studies",
-  "pageType": "CollectionPage",
-  "breadcrumbs": [{ "name": "Case Studies", "url": "{{SITE_URL}}/case-studies/" }]
+  "nav": "",
+  "hidden": true,
+  "crumb": "Case studies"
 }
 -->
-    <section class="page-hero">
+    <!--
+      HIDDEN PAGE: not linked, noindex, and left out of the sitemap.
+      To enable: set "hidden": false above, add a "Case Studies" link in src/partials/header.html,
+      replace the template below with a real, permission-approved case study, and rebuild.
+    -->
+    <section class="page-hero" aria-labelledby="cs-h">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li aria-current="page">Case Studies</li></ol></nav>
-        <h1>Case studies</h1>
-        <p class="lead">Each case study follows the same structure: the challenge, our approach, and the outcome we measured. We publish them only with client permission, and we report results as they were.</p>
+        <h1 id="cs-h">Case studies</h1>
+        <p class="lead">Real projects, published with client permission. Results are reported as measured, with the time period and data source.</p>
       </div>
     </section>
-
-    <section class="section" aria-labelledby="cases-title">
+    <section class="section section--alt">
       <div class="container">
-        <h2 id="cases-title" class="visually-hidden">Case study list</h2>
-        <!--
-          CASE STUDY TEMPLATE
-          Duplicate one <article class="case"> per client. Replace every [PLACEHOLDER] with verified
-          facts only, remove the "Case study coming soon" badge, and only state results you can
-          evidence (with the time period and how they were measured). Get written client approval.
-        -->
-        <article class="case reveal" aria-labelledby="case-1-title">
-          <div>
-            <span class="badge badge--soon">Case study coming soon</span>
-            <h3 id="case-1-title" class="h2-style"><span class="ph">[PLACEHOLDER: case study title, e.g. "Rebuilding analytics for a regional retailer"]</span></h3>
-            <dl class="case__meta">
-              <dt>Client</dt>
-              <dd><span class="ph">[PLACEHOLDER: client name, or anonymised sector description]</span></dd>
-              <dt>Market</dt>
-              <dd><span class="ph">[PLACEHOLDER: country or region]</span></dd>
-              <dt>Period</dt>
-              <dd><span class="ph">[PLACEHOLDER: engagement dates, e.g. 2026-01 to 2026-06]</span></dd>
-            </dl>
-            <ul class="tags" role="list" aria-label="Services used">
-              <li class="badge"><span class="ph">[PLACEHOLDER: service]</span></li>
-              <li class="badge"><span class="ph">[PLACEHOLDER: service]</span></li>
-            </ul>
+        <article class="panel" aria-labelledby="c1">
+          <p class="label"><span class="ph">[PLACEHOLDER: client or sector]</span> · <span class="ph">[PLACEHOLDER: market]</span> · <span class="ph">[PLACEHOLDER: period]</span></p>
+          <h2 id="c1" class="h3"><span class="ph">[PLACEHOLDER: case study title]</span></h2>
+          <div class="split mt-3">
+            <div><h3 class="label">Challenge</h3><p><span class="ph">[PLACEHOLDER: two to three sentences]</span></p></div>
+            <div><h3 class="label">Approach</h3><p><span class="ph">[PLACEHOLDER: two to three sentences]</span></p></div>
           </div>
-          <div class="case__body">
-            <div>
-              <h4 id="case-1-challenge">Challenge</h4>
-              <p><span class="ph">[PLACEHOLDER: the problem in two or three sentences. What was not working, and why it mattered to the business.]</span></p>
-            </div>
-            <div>
-              <h4 id="case-1-approach">Approach</h4>
-              <p><span class="ph">[PLACEHOLDER: what we did, step by step, in two or three sentences. Name the services and key decisions.]</span></p>
-            </div>
-            <div>
-              <h4 id="case-1-outcome">Outcome</h4>
-              <p><span class="ph">[PLACEHOLDER: verified results with time period and measurement source, e.g. "Enquiries recorded in GA4 rose from X to Y between [dates]". Note any other factors.]</span></p>
-            </div>
-          </div>
+          <h3 class="label mt-3">Outcome</h3>
+          <p><span class="ph">[PLACEHOLDER: measured results, with source and dates]</span></p>
+          <p class="small muted mb-0"><span class="ph">[PLACEHOLDER: client quote, only with written permission]</span></p>
         </article>
-
-        <article class="case reveal" aria-labelledby="case-2-title">
-          <div>
-            <span class="badge badge--soon">Case study coming soon</span>
-            <h3 id="case-2-title" class="h2-style"><span class="ph">[PLACEHOLDER: case study title]</span></h3>
-            <dl class="case__meta">
-              <dt>Client</dt>
-              <dd><span class="ph">[PLACEHOLDER: client name or sector]</span></dd>
-              <dt>Market</dt>
-              <dd><span class="ph">[PLACEHOLDER: country or region]</span></dd>
-              <dt>Period</dt>
-              <dd><span class="ph">[PLACEHOLDER: engagement dates]</span></dd>
-            </dl>
-          </div>
-          <div class="case__body">
-            <div>
-              <h4 id="case-2-challenge">Challenge</h4>
-              <p><span class="ph">[PLACEHOLDER: the problem]</span></p>
-            </div>
-            <div>
-              <h4 id="case-2-approach">Approach</h4>
-              <p><span class="ph">[PLACEHOLDER: what we did]</span></p>
-            </div>
-            <div>
-              <h4 id="case-2-outcome">Outcome</h4>
-              <p><span class="ph">[PLACEHOLDER: verified, measured results]</span></p>
-            </div>
-          </div>
-        </article>
-
-        <article class="case reveal" aria-labelledby="case-3-title">
-          <div>
-            <span class="badge badge--soon">Case study coming soon</span>
-            <h3 id="case-3-title" class="h2-style"><span class="ph">[PLACEHOLDER: case study title]</span></h3>
-            <dl class="case__meta">
-              <dt>Client</dt>
-              <dd><span class="ph">[PLACEHOLDER: client name or sector]</span></dd>
-              <dt>Market</dt>
-              <dd><span class="ph">[PLACEHOLDER: country or region]</span></dd>
-              <dt>Period</dt>
-              <dd><span class="ph">[PLACEHOLDER: engagement dates]</span></dd>
-            </dl>
-          </div>
-          <div class="case__body">
-            <div>
-              <h4 id="case-3-challenge">Challenge</h4>
-              <p><span class="ph">[PLACEHOLDER: the problem]</span></p>
-            </div>
-            <div>
-              <h4 id="case-3-approach">Approach</h4>
-              <p><span class="ph">[PLACEHOLDER: what we did]</span></p>
-            </div>
-            <div>
-              <h4 id="case-3-outcome">Outcome</h4>
-              <p><span class="ph">[PLACEHOLDER: verified, measured results]</span></p>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="cta-band" aria-labelledby="cta-title">
-      <svg class="cta-band__pattern" viewBox="0 0 400 200" fill="none" aria-hidden="true" focusable="false"><g stroke="currentColor" stroke-width="1.5"><path d="M0 180 C 80 170, 120 120, 200 110 S 320 40, 400 20"/><path d="M0 200H400M0 150H400M0 100H400M0 50H400" stroke-width="1"/></g></svg>
-      <div class="container">
-        <p class="eyebrow">Your business next</p>
-        <h2 id="cta-title">Every case study starts with an audit.</h2>
-        <p>Find out where your website stands today, with a clear baseline we can measure progress against.</p>
-        <div class="actions">
-          <a class="btn btn--primary btn--lg" href="/contact/?enquiry=audit#enquiry" data-track="cta_click" data-cta-name="request_audit" data-cta-location="case_studies_cta_band">Request a Website Audit <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></a>
-        </div>
+        <div class="actions"><a class="btn btn--primary" href="/audit/" data-event="audit_cta_click" data-location="case_studies">Request a Website Audit<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
       </div>
     </section>
